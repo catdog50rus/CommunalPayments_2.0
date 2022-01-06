@@ -7,21 +7,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{B850C6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{B9604DB7-A8AD-49A4-85A4-F6EA74080D00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Api", "src\Server\CnD.CommunalPayments.Server.Api\CnD.CommunalPayments.Server.Api.csproj", "{02EFDBD6-C3C4-48AD-8251-3844F25D1CB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Api", "src\Server\CnD.CommunalPayments.Server.Api\CnD.CommunalPayments.Server.Api.csproj", "{02EFDBD6-C3C4-48AD-8251-3844F25D1CB7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{D3400505-7E28-4EC6-8964-F1EF9EE84F8B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{55B8881C-C3E7-4E50-8BAE-FF539D3A3E52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Contracts.Models", "src\Contracts\CnD.CommunalPayments.Contracts.Models\CnD.CommunalPayments.Contracts.Models.csproj", "{19CB1290-19B9-4BEB-8BB4-ABB9B1F5781A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Contracts.Models", "src\Contracts\CnD.CommunalPayments.Contracts.Models\CnD.CommunalPayments.Contracts.Models.csproj", "{19CB1290-19B9-4BEB-8BB4-ABB9B1F5781A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domen", "Domen", "{673330BE-2B7B-4298-8345-1A5C0B31AFDB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAO", "DAO", "{BF723384-F2FD-4773-9095-9FB5BA548DDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Domen.Models", "CnD.CommunalPayments.Server.Domen.Models\CnD.CommunalPayments.Server.Domen.Models.csproj", "{EC8B8599-4E95-4D75-A59C-2D6C27DF793A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Domen.Models", "CnD.CommunalPayments.Server.Domen.Models\CnD.CommunalPayments.Server.Domen.Models.csproj", "{EC8B8599-4E95-4D75-A59C-2D6C27DF793A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Dao", "CnD.CommunalPayments.Server.Dao\CnD.CommunalPayments.Server.Dao.csproj", "{129B3DFA-C2D0-4DC7-AA52-198B75EC8DA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Dao", "CnD.CommunalPayments.Server.Dao\CnD.CommunalPayments.Server.Dao.csproj", "{129B3DFA-C2D0-4DC7-AA52-198B75EC8DA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Dao.Entities", "CnD.CommunalPayments.Server.Dao.Entities\CnD.CommunalPayments.Server.Dao.Entities.csproj", "{87473C00-A413-4A63-9D01-040565F9A320}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Dao.IMPL.SQL", "CnD.CommunalPayments.Server.Dao.IMPL.SQL\CnD.CommunalPayments.Server.Dao.IMPL.SQL.csproj", "{1A0807AE-2F04-4DF8-9FAC-F8CBB4C27BE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{95EA4715-F402-4CF1-B8BE-215E065EC174}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Infrastructure.Mapper", "CnD.CommunalPayments.Server.Infrastructure.Mapper\CnD.CommunalPayments.Server.Infrastructure.Mapper.csproj", "{9C4403D9-1D83-480A-A15E-965DAA474FC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +53,18 @@ Global
 		{129B3DFA-C2D0-4DC7-AA52-198B75EC8DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{129B3DFA-C2D0-4DC7-AA52-198B75EC8DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{129B3DFA-C2D0-4DC7-AA52-198B75EC8DA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87473C00-A413-4A63-9D01-040565F9A320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87473C00-A413-4A63-9D01-040565F9A320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87473C00-A413-4A63-9D01-040565F9A320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87473C00-A413-4A63-9D01-040565F9A320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A0807AE-2F04-4DF8-9FAC-F8CBB4C27BE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0807AE-2F04-4DF8-9FAC-F8CBB4C27BE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0807AE-2F04-4DF8-9FAC-F8CBB4C27BE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0807AE-2F04-4DF8-9FAC-F8CBB4C27BE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C4403D9-1D83-480A-A15E-965DAA474FC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C4403D9-1D83-480A-A15E-965DAA474FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C4403D9-1D83-480A-A15E-965DAA474FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C4403D9-1D83-480A-A15E-965DAA474FC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +78,10 @@ Global
 		{BF723384-F2FD-4773-9095-9FB5BA548DDD} = {B850C64A-C5A4-4C6E-8B99-C2A797CC4892}
 		{EC8B8599-4E95-4D75-A59C-2D6C27DF793A} = {673330BE-2B7B-4298-8345-1A5C0B31AFDB}
 		{129B3DFA-C2D0-4DC7-AA52-198B75EC8DA9} = {BF723384-F2FD-4773-9095-9FB5BA548DDD}
+		{87473C00-A413-4A63-9D01-040565F9A320} = {BF723384-F2FD-4773-9095-9FB5BA548DDD}
+		{1A0807AE-2F04-4DF8-9FAC-F8CBB4C27BE1} = {BF723384-F2FD-4773-9095-9FB5BA548DDD}
+		{95EA4715-F402-4CF1-B8BE-215E065EC174} = {B850C64A-C5A4-4C6E-8B99-C2A797CC4892}
+		{9C4403D9-1D83-480A-A15E-965DAA474FC5} = {95EA4715-F402-4CF1-B8BE-215E065EC174}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76755EE1-6CFC-49EA-8FD4-041662BB6168}
