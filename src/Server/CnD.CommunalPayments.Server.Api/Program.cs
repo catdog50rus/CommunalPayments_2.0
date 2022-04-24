@@ -1,25 +1,31 @@
-var builder = WebApplication.CreateBuilder(args);
+using CnD.CommunalPayments.Server.Api.Definitions.Base;
+using CnD.CommunalPayments.Server.Api.Endpoints.Base;
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+try
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    // configure logger (NLog)
+
+    // created builder
+    var builder = WebApplication.CreateBuilder(args);
+
+    builder.Services.AddAppDefinitions(builder, typeof(Program));
+    builder.Services.AddAppEndpoints(builder, typeof(Program));
+
+    // create application
+    var app = builder.Build();
+
+    app.UseAppDefinitions();
+    app.UseAppEndpoints();
+
+    // start application
+    app.Run();
+
+    return 0;
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+catch (Exception ex)
+{
+    return 1;
+}
+finally
+{
+}
