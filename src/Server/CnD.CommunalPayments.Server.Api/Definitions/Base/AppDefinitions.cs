@@ -2,7 +2,7 @@
 
 public abstract class AppDefinitions : IAppDefinitions
 {
-    public void ConfigureApplication(IApplicationBuilder app, IWebHostEnvironment env) { }
+    public virtual void ConfigureApplication(IApplicationBuilder app, IWebHostEnvironment env) { }
 
-    public void ConfigureServices(IServiceCollection services, IConfiguration configuration) { }
+    public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration) { }
 }

@@ -1,12 +1,21 @@
 using CnD.CommunalPayments.Server.Api.Definitions.Base;
 using CnD.CommunalPayments.Server.Api.Endpoints.Base;
+using NLog;
+using NLog.Web;
+
+// configure logger (NLog)
+var logger = LogManager
+    .Setup()
+    .LoadConfigurationFromAppSettings()
+    .GetCurrentClassLogger();
 
 try
-{
-    // configure logger (NLog)
-
+{   
     // created builder
     var builder = WebApplication.CreateBuilder(args);
+    builder.Host.UseNLog();
+
+    var env = builder.Environment.EnvironmentName;
 
     builder.Services.AddAppDefinitions(builder, typeof(Program));
     builder.Services.AddAppEndpoints(builder, typeof(Program));
@@ -17,6 +26,9 @@ try
     app.UseAppDefinitions();
     app.UseAppEndpoints();
 
+    logger.Debug("API Starting...");
+    logger.Debug($"Enviromet: {env}");
+
     // start application
     app.Run();
 
@@ -24,8 +36,10 @@ try
 }
 catch (Exception ex)
 {
+    logger.Error(ex, "Stopped program because of exception");
     return 1;
 }
 finally
 {
+
 }
