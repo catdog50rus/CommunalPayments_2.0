@@ -19,17 +19,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domen", "Domen", "{673330BE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAO", "DAO", "{BF723384-F2FD-4773-9095-9FB5BA548DDD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Domen.Models", "CnD.CommunalPayments.Server.Domen.Models\CnD.CommunalPayments.Server.Domen.Models.csproj", "{EC8B8599-4E95-4D75-A59C-2D6C27DF793A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Domen.Models", "src\Server\CnD.CommunalPayments.Server.Domen.Models\CnD.CommunalPayments.Server.Domen.Models.csproj", "{EC8B8599-4E95-4D75-A59C-2D6C27DF793A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Dao", "CnD.CommunalPayments.Server.Dao\CnD.CommunalPayments.Server.Dao.csproj", "{129B3DFA-C2D0-4DC7-AA52-198B75EC8DA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Dao", "src\Server\CnD.CommunalPayments.Server.Dao\CnD.CommunalPayments.Server.Dao.csproj", "{129B3DFA-C2D0-4DC7-AA52-198B75EC8DA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Dao.Entities", "CnD.CommunalPayments.Server.Dao.Entities\CnD.CommunalPayments.Server.Dao.Entities.csproj", "{87473C00-A413-4A63-9D01-040565F9A320}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Dao.Entities", "src\Server\CnD.CommunalPayments.Server.Dao.Entities\CnD.CommunalPayments.Server.Dao.Entities.csproj", "{87473C00-A413-4A63-9D01-040565F9A320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Dao.IMPL.SQL", "CnD.CommunalPayments.Server.Dao.IMPL.SQL\CnD.CommunalPayments.Server.Dao.IMPL.SQL.csproj", "{1A0807AE-2F04-4DF8-9FAC-F8CBB4C27BE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Dao.IMPL.SQL", "src\Server\CnD.CommunalPayments.Server.Dao.IMPL.SQL\CnD.CommunalPayments.Server.Dao.IMPL.SQL.csproj", "{1A0807AE-2F04-4DF8-9FAC-F8CBB4C27BE1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{95EA4715-F402-4CF1-B8BE-215E065EC174}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Infrastructure.Mapper", "CnD.CommunalPayments.Server.Infrastructure.Mapper\CnD.CommunalPayments.Server.Infrastructure.Mapper.csproj", "{9C4403D9-1D83-480A-A15E-965DAA474FC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Infrastructure.Mapper", "src\Server\CnD.CommunalPayments.Server.Infrastructure.Mapper\CnD.CommunalPayments.Server.Infrastructure.Mapper.csproj", "{9C4403D9-1D83-480A-A15E-965DAA474FC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A7B6D90C-5C33-4FDC-9F8F-12A93317B720}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -82,6 +84,7 @@ Global
 		{1A0807AE-2F04-4DF8-9FAC-F8CBB4C27BE1} = {BF723384-F2FD-4773-9095-9FB5BA548DDD}
 		{95EA4715-F402-4CF1-B8BE-215E065EC174} = {B850C64A-C5A4-4C6E-8B99-C2A797CC4892}
 		{9C4403D9-1D83-480A-A15E-965DAA474FC5} = {95EA4715-F402-4CF1-B8BE-215E065EC174}
+		{A7B6D90C-5C33-4FDC-9F8F-12A93317B720} = {B850C64A-C5A4-4C6E-8B99-C2A797CC4892}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76755EE1-6CFC-49EA-8FD4-041662BB6168}
