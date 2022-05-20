@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Contracts\CnD.CommunalPayments.Contracts.Models\CnD.CommunalPayments.Contracts.Models.csproj" />
+    <ProjectReference Include="..\CnD.CommunalPayments.Server.Domen.Core\CnD.CommunalPayments.Server.Domen.Core.csproj" />
     <ProjectReference Include="..\CnD.CommunalPayments.Server.Domen.Models\CnD.CommunalPayments.Server.Domen.Models.csproj" />
   </ItemGroup>
 
