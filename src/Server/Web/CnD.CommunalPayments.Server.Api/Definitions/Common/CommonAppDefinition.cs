@@ -1,4 +1,5 @@
 ﻿using CnD.CommunalPayments.Server.Api.Definitions.Base;
+using CnD.CommunalPayments.Server.Infrastructure.Mapper;
 
 namespace CnD.CommunalPayments.Server.Api.Definitions.Common;
 
@@ -26,5 +27,6 @@ public class CommonAppDefinition : AppDefinitions
         services.AddHttpContextAccessor();
         services.AddResponseCaching();
         services.AddMemoryCache();
+        services.AddAutoMapper();
     }
 }

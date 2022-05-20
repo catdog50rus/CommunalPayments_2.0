@@ -7,12 +7,12 @@ public class Invoice
     /// <summary>
     /// Период за который выставлен счет
     /// </summary>
-    public Period Period { get; set; }
+    public Period Period { get; set; } = new();
 
     /// <summary>
     /// Id поставщика услуги
     /// </summary>
-    public Provider Provider { get; set; }
+    public Provider Provider { get; set; } = new();
 
     /// <summary>
     /// Сумма счета

@@ -1,6 +1,6 @@
 ﻿namespace CnD.CommunalPayments.Server.Domen.Models;
 
-public class InvoiceService
+public class InvoiceServices
 {
     public int Id { get; set; }
 

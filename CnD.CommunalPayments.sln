@@ -39,13 +39,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{97069BE1-D3D1-434C-BAD4-DAE0959FC11F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Services.BL", "src\Server\Services\CnD.CommunalPayments.Server.Services.BL\CnD.CommunalPayments.Server.Services.BL.csproj", "{5271CF48-E8B8-4008-9171-A5536139AC0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Services.BL", "src\Server\Services\CnD.CommunalPayments.Server.Services.BL\CnD.CommunalPayments.Server.Services.BL.csproj", "{5271CF48-E8B8-4008-9171-A5536139AC0F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Domen.Models", "src\Server\Domen\CnD.CommunalPayments.Server.Domen.Models\CnD.CommunalPayments.Server.Domen.Models.csproj", "{57FC56CA-E813-45D8-BECE-A49A788BCCD0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Infrastructure.Mapper", "src\Server\Domen\CnD.CommunalPayments.Server.Infrastructure.Mapper\CnD.CommunalPayments.Server.Infrastructure.Mapper.csproj", "{98BF2D0A-A070-4A0D-B18D-BED1B23E951C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Api", "src\Server\Web\CnD.CommunalPayments.Server.Api\CnD.CommunalPayments.Server.Api.csproj", "{A2ED8D09-D2FC-44C2-9E93-7FE8F8EB45E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Domen.Core", "src\Server\Domen\CnD.CommunalPayments.Server.Domen.Core\CnD.CommunalPayments.Server.Domen.Core.csproj", "{2E7B5632-7693-4FFC-BCC2-B7A065AE8822}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +99,10 @@ Global
 		{A2ED8D09-D2FC-44C2-9E93-7FE8F8EB45E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2ED8D09-D2FC-44C2-9E93-7FE8F8EB45E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2ED8D09-D2FC-44C2-9E93-7FE8F8EB45E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E7B5632-7693-4FFC-BCC2-B7A065AE8822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7B5632-7693-4FFC-BCC2-B7A065AE8822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7B5632-7693-4FFC-BCC2-B7A065AE8822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7B5632-7693-4FFC-BCC2-B7A065AE8822}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,6 +128,7 @@ Global
 		{57FC56CA-E813-45D8-BECE-A49A788BCCD0} = {673330BE-2B7B-4298-8345-1A5C0B31AFDB}
 		{98BF2D0A-A070-4A0D-B18D-BED1B23E951C} = {95EA4715-F402-4CF1-B8BE-215E065EC174}
 		{A2ED8D09-D2FC-44C2-9E93-7FE8F8EB45E1} = {B9604DB7-A8AD-49A4-85A4-F6EA74080D00}
+		{2E7B5632-7693-4FFC-BCC2-B7A065AE8822} = {673330BE-2B7B-4298-8345-1A5C0B31AFDB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76755EE1-6CFC-49EA-8FD4-041662BB6168}

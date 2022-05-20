@@ -8,7 +8,7 @@ namespace CnD.CommunalPayments.Server.Api.Endpoints.SwaggerEndpoints
 {
     public class SwaggerEndpointDefinition : EndpointDefinition
     {
-        private const string _appTitle = "Microservice API";
+        private const string _appTitle = "Communal Payment - 2.0 API";
         private const string _appVersion = $"{ThisAssembly.Git.SemVer.Major}.{ThisAssembly.Git.SemVer.Minor}.{ThisAssembly.Git.SemVer.Patch}";
         private const string _swaggerConfig = "/swagger/v1/swagger.json";
 
@@ -45,7 +45,7 @@ namespace CnD.CommunalPayments.Server.Api.Endpoints.SwaggerEndpoints
                 {
                     Title = _appTitle,
                     Version = _appVersion,
-                    Description = "Communal Payments API"
+                    Description = _appTitle
                 });
 
                 options.ResolveConflictingActions(x => x.First());
