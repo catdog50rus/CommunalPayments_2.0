@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFixture" Version="4.17.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageReference Include="Moq" Version="4.18.1" />
+    <PackageReference Include="Shouldly" Version="4.0.3" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.1.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Server\DataLayer\DAOProviders\CnD.CommunalPayments.Server.DaoProviders.IMPL\CnD.CommunalPayments.Server.DaoProviders.IMPL.csproj" />
+    <ProjectReference Include="..\..\..\src\Server\DataLayer\DAOProviders\CnD.CommunalPayments.Server.DaoProviders\CnD.CommunalPayments.Server.DaoProviders.csproj" />
+    <ProjectReference Include="..\..\..\src\Server\DataLayer\DAO\CnD.CommunalPayments.Server.Dao\CnD.CommunalPayments.Server.Dao.csproj" />
+    <ProjectReference Include="..\..\..\src\Server\Domen\CnD.CommunalPayments.Server.Domen.Models\CnD.CommunalPayments.Server.Domen.Models.csproj" />
+    <ProjectReference Include="..\..\..\src\Server\Domen\CnD.CommunalPayments.Server.Infrastructure.Mapper\CnD.CommunalPayments.Server.Infrastructure.Mapper.csproj" />
+  </ItemGroup>
+
+</Project>
