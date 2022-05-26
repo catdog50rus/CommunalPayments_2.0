@@ -1,9 +1,9 @@
-﻿namespace CnD.CommunalPayments.Server.Domen.Models;
+﻿using CnD.CommunalPayments.Server.Dao.Entities.Base;
 
-public class Service
+namespace CnD.CommunalPayments.Server.Dao.Entities.Models;
+
+public class ServiceEntity : EntityBase
 {
-    public int Id { get; set; }
-
     /// <summary>
     /// Наименование услуги ЖКХ
     /// </summary>

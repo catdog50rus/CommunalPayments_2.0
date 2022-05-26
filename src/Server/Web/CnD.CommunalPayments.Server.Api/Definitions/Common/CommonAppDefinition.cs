@@ -1,4 +1,5 @@
 ﻿using CnD.CommunalPayments.Server.Api.Definitions.Base;
+using CnD.CommunalPayments.Server.DaoProviders.Registrator;
 using CnD.CommunalPayments.Server.Infrastructure.Mapper;
 
 namespace CnD.CommunalPayments.Server.Api.Definitions.Common;
@@ -28,5 +29,6 @@ public class CommonAppDefinition : AppDefinitions
         services.AddResponseCaching();
         services.AddMemoryCache();
         services.AddAutoMapper();
+        services.AddDaoProviders();
     }
 }

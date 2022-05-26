@@ -14,6 +14,8 @@ namespace CnD.CommunalPayments.Server.Infrastructure.Mapper
                 mc.AddProfile(new ApiContractResponsesProfile());
             });
 
+            mappingConfig.AssertConfigurationIsValid();
+
             var mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
         }

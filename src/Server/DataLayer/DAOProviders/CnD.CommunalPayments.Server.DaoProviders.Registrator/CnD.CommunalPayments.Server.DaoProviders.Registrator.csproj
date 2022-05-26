@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Domen\CnD.CommunalPayments.Server.Domen.Models\CnD.CommunalPayments.Server.Domen.Models.csproj" />
+    <ProjectReference Include="..\CnD.CommunalPayments.Server.DaoProviders.IMPL\CnD.CommunalPayments.Server.DaoProviders.IMPL.csproj" />
+    <ProjectReference Include="..\CnD.CommunalPayments.Server.DaoProviders\CnD.CommunalPayments.Server.DaoProviders.csproj" />
   </ItemGroup>
 
 </Project>
