@@ -51,9 +51,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.DaoProviders.Registrator", "src\Server\DataLayer\DAOProviders\CnD.CommunalPayments.Server.DaoProviders.Registrator\CnD.CommunalPayments.Server.DaoProviders.Registrator.csproj", "{E7E4CFCE-E419-4C84-947E-89C91CB3E5D3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DaoPrividerTests", "DaoPrividerTests", "{08F982A7-3775-4691-8F7A-BCEED6736E82}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DaoProviderTests", "DaoProviderTests", "{08F982A7-3775-4691-8F7A-BCEED6736E82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.DaoProviders.Tests", "tests\DaoProviderTests\CnD.CommunalPayments.Server.DaoProviders.Tests\CnD.CommunalPayments.Server.DaoProviders.Tests.csproj", "{FC03DF36-2A8A-45F9-B309-FA36FE859A87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.DaoProviders.Tests", "tests\DaoProviderTests\CnD.CommunalPayments.Server.DaoProviders.Tests\CnD.CommunalPayments.Server.DaoProviders.Tests.csproj", "{FC03DF36-2A8A-45F9-B309-FA36FE859A87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
