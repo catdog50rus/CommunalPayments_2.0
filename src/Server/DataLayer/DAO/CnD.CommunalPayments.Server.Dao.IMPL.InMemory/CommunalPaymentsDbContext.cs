@@ -1,10 +1,13 @@
-﻿using CnD.CommunalPayments.Server.Dao.IMPL.InMemory.Configures;
+﻿using CnD.CommunalPayments.Server.Dao.Entities.Models;
+using CnD.CommunalPayments.Server.Dao.IMPL.InMemory.Configures;
 using Microsoft.EntityFrameworkCore;
 
 namespace CnD.CommunalPayments.Server.Dao.IMPL.InMemory;
 
 public class CommunalPaymentsDbContext : DbContext
 {
+    public DbSet<InvoiceEntity> Invoices { get; set; }
+
     public CommunalPaymentsDbContext(DbContextOptions<CommunalPaymentsDbContext> options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
