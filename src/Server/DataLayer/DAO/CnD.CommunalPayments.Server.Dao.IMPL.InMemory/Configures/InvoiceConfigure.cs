@@ -21,5 +21,26 @@ internal class InvoiceConfigure : IEntityTypeConfiguration<InvoiceEntity>
         builder.Property(x => x.IsPaid).HasColumnName("is_paid").HasDefaultValue(false);
         builder.Property(x => x.ProviderId).HasColumnName("provider_id");
         builder.Property(x => x.PeriodId).HasColumnName("period_id");
+
+        builder.HasOne(x => x.Period);
+    }
+}
+
+internal class PeriodConfigure : IEntityTypeConfiguration<PeriodEntity>
+{
+    public void Configure(EntityTypeBuilder<PeriodEntity> builder)
+    {
+        builder.ToTable("Periods");
+
+        builder.HasKey(x => x.Id);
+
+        builder.Property(x => x.Id).HasColumnName("id");
+        builder.Property(x => x.CreatedAt).HasColumnName("created_at");
+        builder.Property(x => x.CreatorName).HasColumnName("creator_name");
+        builder.Property(x => x.UpdatedAt).HasColumnName("updated_at");
+        builder.Property(x => x.UpdatorName).HasColumnName("updator_name");
+
+        builder.Property(x => x.Month).HasColumnName("month").HasMaxLength(8);
+        builder.Property(x => x.Year).HasColumnName("year").HasMaxLength(4);
     }
 }
