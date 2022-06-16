@@ -1,4 +1,4 @@
-﻿using CnD.CommunalPayments.Server.Dao.Entities.Models;
+using CnD.CommunalPayments.Server.Dao.Entities.Models;
 using CnD.CommunalPayments.Server.Dao.IMPL.InMemory.Configures;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +18,7 @@ public class CommunalPaymentsDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(InvoiceConfigure).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProviderConfigure).Assembly);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(PeriodConfigure).Assembly);
     }
 }
