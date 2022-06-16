@@ -21,6 +21,8 @@ internal class InvoiceConfigure : IEntityTypeConfiguration<InvoiceEntity>
         builder.Property(x => x.IsPaid).HasColumnName("is_paid").HasDefaultValue(false);
         builder.Property(x => x.ProviderId).HasColumnName("provider_id");
         builder.Property(x => x.PeriodId).HasColumnName("period_id");
+
+        builder.HasOne(x => x.Period);
     }
 }
 
