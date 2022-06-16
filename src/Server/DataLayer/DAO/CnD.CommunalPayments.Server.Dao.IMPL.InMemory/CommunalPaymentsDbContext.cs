@@ -18,5 +18,6 @@ public class CommunalPaymentsDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(InvoiceConfigure).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProviderConfigure).Assembly);
     }
 }
