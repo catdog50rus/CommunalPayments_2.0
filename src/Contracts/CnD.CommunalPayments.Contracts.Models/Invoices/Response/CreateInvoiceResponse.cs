@@ -19,6 +19,6 @@
         /// </summary>
         public decimal Sum { get; init; }
 
-        public bool Pay { get; init; }
+        public bool IsPaid { get; init; }
     }
 }

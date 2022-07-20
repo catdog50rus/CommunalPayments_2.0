@@ -25,5 +25,5 @@ public class CreateInvoiceRequest
     [Range(0, 10_000_000, ErrorMessage = "Сумма не может быть меньше 0")]
     public decimal Sum { get; init; }
 
-    public bool Pay { get; init; }
+    public bool IsPaid { get; init; }
 }

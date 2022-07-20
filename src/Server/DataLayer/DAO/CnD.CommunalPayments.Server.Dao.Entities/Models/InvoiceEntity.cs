@@ -23,5 +23,5 @@ public class InvoiceEntity : EntityBase
     /// </summary>
     public decimal Sum { get; set; }
 
-    public bool Pay { get; set; }
+    public bool IsPaid { get; set; }
 }

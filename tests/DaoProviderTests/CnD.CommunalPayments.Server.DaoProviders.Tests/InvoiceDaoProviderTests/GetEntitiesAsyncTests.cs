@@ -31,7 +31,7 @@ public class GetEntitiesAsyncTests : BaseInvoiceDaoProviderTests
         result.ShouldNotBeNull();
         result.ShouldNotBeEmpty();
         result.First().Id.ShouldBe(invoice.Id);
-        result.First().Pay.ShouldBe(invoice.Pay);
+        result.First().IsPaid.ShouldBe(invoice.IsPaid);
         result.First().Sum.ShouldBe(invoice.Sum);
         result.First().Period.ShouldBe(invoice.Period);
         result.First().Provider.ShouldBe(invoice.Provider);
