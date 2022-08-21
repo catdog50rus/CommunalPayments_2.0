@@ -20,7 +20,7 @@ public enum PeriodsName
     January = 1,
 
     [Display(Name = "Февраль")]
-    Febriary = 2,
+    February = 2,
 
     [Display(Name = "Март")]
     March = 3,
@@ -44,7 +44,7 @@ public enum PeriodsName
     September = 9,
 
     [Display(Name = "Октябрь")]
-    Oktober = 10,
+    October = 10,
 
     [Display(Name = "Ноябрь")]
     November = 11,

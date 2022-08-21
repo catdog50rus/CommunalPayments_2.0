@@ -12,7 +12,10 @@ namespace CnD.CommunalPayments.Server.Infrastructure.Mapper
             {
                 mc.AddProfile(new ApiContractRequestsProfile());
                 mc.AddProfile(new ApiContractResponsesProfile());
+                mc.AddProfile(new ModelEntityProfile());
             });
+
+            mappingConfig.AssertConfigurationIsValid();
 
             var mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);

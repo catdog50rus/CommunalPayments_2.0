@@ -135,7 +135,7 @@ namespace CnD.CommunalPayments.Server.Api.Endpoints.InvoiceEndpoints
 
             var result = await service.DeleteEntityAsync(id);
 
-            if (result is null)
+            if (!result)
                 return Results.Ok(ErrorResponseResult($"Запись с ID: {id} не найдена"));
 
             return Results.Ok(new ResponseResult());

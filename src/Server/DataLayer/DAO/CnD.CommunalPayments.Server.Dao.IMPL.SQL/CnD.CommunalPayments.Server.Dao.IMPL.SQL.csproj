@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CnD.CommunalPayments.Server.Dao.Entities\CnD.CommunalPayments.Server.Dao.Entities.csproj" />
+    <ProjectReference Include="..\CnD.CommunalPayments.Server.Dao\CnD.CommunalPayments.Server.Dao.csproj" />
+  </ItemGroup>
+
 </Project>

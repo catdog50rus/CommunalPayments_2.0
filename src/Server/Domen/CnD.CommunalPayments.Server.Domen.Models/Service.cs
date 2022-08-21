@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CnD.CommunalPayments.Server.Domen.Models;
+﻿namespace CnD.CommunalPayments.Server.Domen.Models;
 
 public class Service
 {

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DataLayer\DAOProviders\CnD.CommunalPayments.Server.DaoProviders\CnD.CommunalPayments.Server.DaoProviders.csproj" />
     <ProjectReference Include="..\..\Domen\CnD.CommunalPayments.Server.Domen.Core\CnD.CommunalPayments.Server.Domen.Core.csproj" />
     <ProjectReference Include="..\..\Domen\CnD.CommunalPayments.Server.Domen.Models\CnD.CommunalPayments.Server.Domen.Models.csproj" />
   </ItemGroup>

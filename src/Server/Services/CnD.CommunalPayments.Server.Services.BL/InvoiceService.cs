@@ -1,38 +1,43 @@
-﻿using CnD.CommunalPayments.Server.Domen.Core.Query;
+﻿using CnD.CommunalPayments.Server.DaoProviders.Base;
+using CnD.CommunalPayments.Server.Domen.Core.Query;
 using CnD.CommunalPayments.Server.Domen.Models;
+using System.Linq;
 
 namespace CnD.CommunalPayments.Server.Services.BL;
 
 public class InvoiceService : IInvoiceService
 {
-    public InvoiceService()
-    {
+    private readonly IBaseProviderService<Invoice> _invoicePorvider;
 
+    public InvoiceService(IBaseProviderService<Invoice> invoicePorvider)
+    {
+        _invoicePorvider = invoicePorvider ?? throw new ArgumentNullException(nameof(invoicePorvider));
     }
 
     public async Task<List<Invoice>> GetAllAsync(PagedListQueryParams queryParams, CancellationToken token = default)
     {
-        return await Task.Run(() => new List<Invoice>() { new Invoice() }, token).ConfigureAwait(false);
+        var result = await _invoicePorvider.GetEntitiesAsync(token).ConfigureAwait(false);
+        return result.ToList();
     }
 
     public async Task<Invoice> GetEntityAsync(int id, CancellationToken token = default)
     {
-        return await Task.Run(() => new Invoice(), token).ConfigureAwait(false);
+        return await _invoicePorvider.GetEntityAsync(id, token).ConfigureAwait(false);
     }
 
     public async Task<Invoice> CreateEntityAsync(Invoice item, CancellationToken token = default)
     {
-        return await Task.Run(() => new Invoice(), token).ConfigureAwait(false);
+        return await _invoicePorvider.CreateEntityAsync(item, token).ConfigureAwait(false);
     }
 
     public async Task<Invoice> UpdateEntityAsync(Invoice item, CancellationToken token = default)
     {
-        return await Task.Run(() => new Invoice(), token).ConfigureAwait(false);
+        return await _invoicePorvider.UpdateEntityAsync(item, token).ConfigureAwait(false);
     }
 
-    public async Task<Invoice> DeleteEntityAsync(int id, CancellationToken token = default)
+    public async Task<bool> DeleteEntityAsync(int id, CancellationToken token = default)
     {
-        return await Task.Run(() => new Invoice(), token).ConfigureAwait(false);
+        return await _invoicePorvider.DeleteEntityAsync(id, token).ConfigureAwait(false);
     }
 }
 
@@ -46,5 +51,5 @@ public interface IInvoiceService
 
     Task<Invoice> UpdateEntityAsync(Invoice item, CancellationToken token = default);
 
-    Task<Invoice> DeleteEntityAsync(int id, CancellationToken token = default);
+    Task<bool> DeleteEntityAsync(int id, CancellationToken token = default);
 }

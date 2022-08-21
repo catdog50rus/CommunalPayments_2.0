@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Domen\CnD.CommunalPayments.Server.Infrastructure.Mapper\CnD.CommunalPayments.Server.Infrastructure.Mapper.csproj" />
+    <ProjectReference Include="..\..\DAO\CnD.CommunalPayments.Server.Dao.Entities\CnD.CommunalPayments.Server.Dao.Entities.csproj" />
+    <ProjectReference Include="..\..\DAO\CnD.CommunalPayments.Server.Dao\CnD.CommunalPayments.Server.Dao.csproj" />
     <ProjectReference Include="..\CnD.CommunalPayments.Server.DaoProviders\CnD.CommunalPayments.Server.DaoProviders.csproj" />
   </ItemGroup>
 
