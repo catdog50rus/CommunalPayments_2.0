@@ -55,7 +55,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DaoProviderTests", "DaoProv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.DaoProviders.Tests", "tests\DaoProviderTests\CnD.CommunalPayments.Server.DaoProviders.Tests\CnD.CommunalPayments.Server.DaoProviders.Tests.csproj", "{FC03DF36-2A8A-45F9-B309-FA36FE859A87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Dao.IMPL.InMemory", "src\Server\DataLayer\DAO\CnD.CommunalPayments.Server.Dao.IMPL.InMemory\CnD.CommunalPayments.Server.Dao.IMPL.InMemory.csproj", "{D0827DB9-4C10-44F2-BE3F-0E98FFF784D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Server.Dao.IMPL.InMemory", "src\Server\DataLayer\DAO\CnD.CommunalPayments.Server.Dao.IMPL.InMemory\CnD.CommunalPayments.Server.Dao.IMPL.InMemory.csproj", "{D0827DB9-4C10-44F2-BE3F-0E98FFF784D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Server.Dao.Registrator", "src\Server\DataLayer\DAO\CnD.CommunalPayments.Server.Dao.Registrator\CnD.CommunalPayments.Server.Dao.Registrator.csproj", "{6388A517-E442-452C-997E-89C192003AC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{D0827DB9-4C10-44F2-BE3F-0E98FFF784D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0827DB9-4C10-44F2-BE3F-0E98FFF784D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0827DB9-4C10-44F2-BE3F-0E98FFF784D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6388A517-E442-452C-997E-89C192003AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6388A517-E442-452C-997E-89C192003AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6388A517-E442-452C-997E-89C192003AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6388A517-E442-452C-997E-89C192003AC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -153,6 +159,7 @@ Global
 		{08F982A7-3775-4691-8F7A-BCEED6736E82} = {A7B6D90C-5C33-4FDC-9F8F-12A93317B720}
 		{FC03DF36-2A8A-45F9-B309-FA36FE859A87} = {08F982A7-3775-4691-8F7A-BCEED6736E82}
 		{D0827DB9-4C10-44F2-BE3F-0E98FFF784D8} = {0C157B78-041E-4FE2-AB4A-F32CD7BACD4E}
+		{6388A517-E442-452C-997E-89C192003AC7} = {0C157B78-041E-4FE2-AB4A-F32CD7BACD4E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76755EE1-6CFC-49EA-8FD4-041662BB6168}

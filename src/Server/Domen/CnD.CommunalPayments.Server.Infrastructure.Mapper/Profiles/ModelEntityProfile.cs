@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using CnD.CommunalPayments.Contracts.Models.Invoices.Request;
-using CnD.CommunalPayments.Contracts.Models.Periods.Request;
+﻿using AutoMapper;
 using CnD.CommunalPayments.Server.Dao.Entities.Models;
 using CnD.CommunalPayments.Server.Domen.Core.Helpers;
 using CnD.CommunalPayments.Server.Domen.Models;
@@ -20,25 +13,43 @@ internal class ModelEntityProfile : Profile
 
         CreateMap<Invoice, InvoiceEntity>()
             .ForPath(x => x.PeriodId, o => o.MapFrom(i => i.Period.Id))
-            .ForPath(x => x.Period.Id, o => o.MapFrom(i => i.Period.Id))
-            .ForPath(x => x.Period.Month, o => o.MapFrom(i => i.Period.Month))
-            .ForPath(x => x.Period.Year, o => o.MapFrom(i => i.Period.Year))
-
+            .ForPath(x => x.Period, o => o.MapFrom(i => new PeriodEntity
+            {
+                Id = i.Period.Id,
+                Month = i.Period.Month.GetShortName(),
+                Year = i.Period.Year,
+            }))
+ 
             .ForPath(x => x.ProviderId, o => o.MapFrom(i => i.Provider.Id))
-            .ForPath(x => x.Provider.Id, o => o.MapFrom(i => i.Provider.Id))
-            .ForPath(x => x.Provider.NameProvider, o => o.MapFrom(i => i.Provider.NameProvider))
-            .ForPath(x => x.Provider.WebSite, o => o.MapFrom(i => i.Provider.WebSite))
+            .ForPath(x => x.Provider, o => o.MapFrom(i => new ProviderEntity 
+            {
+                Id = i.Provider.Id,
+                NameProvider = i.Provider.NameProvider,
+                WebSite = i.Provider.WebSite,
+            }))
+
+            .ForPath(x=>x.UpdatedAt, o=>o.Ignore())
+            .ForPath(x => x.CreatedAt, o => o.Ignore())
+            .ForPath(x => x.CreatorName, o => o.Ignore())
+            .ForPath(x => x.UpdatorName, o => o.Ignore())
             ;
 
 
         CreateMap<InvoiceEntity, Invoice>()
-            .ForPath(x => x.Provider.Id, o => o.MapFrom(i => i.ProviderId))
-            .ForPath(x => x.Provider.NameProvider, o => o.MapFrom(i => i.Provider.NameProvider))
-            .ForPath(x => x.Provider.WebSite, o => o.MapFrom(i => i.Provider.WebSite))
+            .ForPath(x => x.Provider, o => o.MapFrom(i => new Provider
+            {
+                Id = i.Provider.Id,
+                NameProvider = i.Provider.NameProvider,
+                WebSite = i.Provider.WebSite,
+            }))
+ 
+            .ForPath(x => x.Period, o => o.MapFrom(i => new Period
+            {
+                Id = i.Period.Id,
+                Month = EnumHelper.GetValueFromDescr<PeriodsName>(i.Period.Month),
+                Year = i.Period.Year,
+            }))
 
-            .ForPath(x => x.Period.Id, o => o.MapFrom(i => i.PeriodId))
-            .ForPath(x => x.Period.Month, o => o.MapFrom(i => i.Period.Month))
-            .ForPath(x => x.Period.Year, o => o.MapFrom(i => i.Period.Year))
             ;
 
         #endregion

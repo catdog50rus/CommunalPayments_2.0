@@ -11,8 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DataLayer\DAOProviders\CnD.CommunalPayments.Server.DaoProviders.IMPL\CnD.CommunalPayments.Server.DaoProviders.IMPL.csproj" />
-    <ProjectReference Include="..\..\DataLayer\DAOProviders\CnD.CommunalPayments.Server.DaoProviders\CnD.CommunalPayments.Server.DaoProviders.csproj" />
+    <ProjectReference Include="..\..\DataLayer\DAOProviders\CnD.CommunalPayments.Server.DaoProviders.Registrator\CnD.CommunalPayments.Server.DaoProviders.Registrator.csproj" />
+    <ProjectReference Include="..\..\DataLayer\DAO\CnD.CommunalPayments.Server.Dao.Registrator\CnD.CommunalPayments.Server.Dao.Registrator.csproj" />
+    <ProjectReference Include="..\CnD.CommunalPayments.Server.Infrastructure.Mapper\CnD.CommunalPayments.Server.Infrastructure.Mapper.csproj" />
   </ItemGroup>
 
 </Project>

@@ -14,9 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Contracts\CnD.CommunalPayments.Contracts.Models\CnD.CommunalPayments.Contracts.Models.csproj" />
-    <ProjectReference Include="..\..\DataLayer\DAOProviders\CnD.CommunalPayments.Server.DaoProviders.Registrator\CnD.CommunalPayments.Server.DaoProviders.Registrator.csproj" />
     <ProjectReference Include="..\..\Domen\CnD.CommunalPayments.Server.Domen.Core\CnD.CommunalPayments.Server.Domen.Core.csproj" />
-    <ProjectReference Include="..\..\Domen\CnD.CommunalPayments.Server.Infrastructure.Mapper\CnD.CommunalPayments.Server.Infrastructure.Mapper.csproj" />
+    <ProjectReference Include="..\..\Domen\CnD.CommunalPayments.Server.Infrastructure.DIContainer\CnD.CommunalPayments.Server.Infrastructure.DIContainer.csproj" />
     <ProjectReference Include="..\..\Services\CnD.CommunalPayments.Server.Services.BL\CnD.CommunalPayments.Server.Services.BL.csproj" />
   </ItemGroup>
 
