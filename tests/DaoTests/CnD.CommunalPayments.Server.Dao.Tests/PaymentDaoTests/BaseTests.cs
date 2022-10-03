@@ -1,6 +1,6 @@
 ﻿using CnD.CommunalPayments.Server.Dao.Base;
 using CnD.CommunalPayments.Server.Dao.Entities.Models;
-using CnD.CommunalPayments.Server.Dao.IMPL.SQL;
+using CnD.CommunalPayments.Server.Dao.IMPL.SQL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +15,6 @@ public class BaseTests : BaseDaoTests<PaymentEntity>
 
     public BaseTests()
     {
-        _dao = new PaymentDao();
+        _dao = new PaymentDao(_dbContextMock.Object);
     }
 }

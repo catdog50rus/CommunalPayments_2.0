@@ -1,13 +1,21 @@
-﻿namespace CnD.CommunalPayments.Server.Domen.Models;
+﻿using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
 
+namespace CnD.CommunalPayments.Server.Domen.Models;
+
+/// <summary>
+/// Услуга
+/// </summary>
 public class Service
 {
-    public int Id { get; set; }
+    /// <summary>
+    /// Id
+    /// </summary>
+    public ModelId Id { get; set; }
 
     /// <summary>
     /// Наименование услуги ЖКХ
     /// </summary>
-    public string Name { get; set; }
+    public ServiceName Name { get; set; }
 
     /// <summary>
     /// Предусмотрен ли счетчик услуги

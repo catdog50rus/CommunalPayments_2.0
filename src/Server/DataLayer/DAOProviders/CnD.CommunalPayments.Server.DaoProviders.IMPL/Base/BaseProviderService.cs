@@ -17,7 +17,7 @@ public abstract class BaseProviderService<T, TEntity> : IBaseProviderService<T>
         _dao = dao ?? throw new ArgumentNullException(nameof(dao));
     }
 
-    public virtual async Task<ICollection<T>> GetEntitiesAsync(CancellationToken cancel = default)
+    public virtual async Task<List<T>> GetEntitiesAsync(CancellationToken cancel = default)
     {
         var entityList = await _dao.GetEntitiesAsync(cancel).ConfigureAwait(false);
 

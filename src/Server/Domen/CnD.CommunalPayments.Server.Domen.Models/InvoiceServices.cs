@@ -1,12 +1,29 @@
-﻿namespace CnD.CommunalPayments.Server.Domen.Models;
+﻿using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
 
+namespace CnD.CommunalPayments.Server.Domen.Models;
+
+/// <summary>
+/// Услуга в счете
+/// </summary>
 public class InvoiceServices
 {
-    public int Id { get; set; }
+    /// <summary>
+    /// Id
+    /// </summary>
+    public ModelId Id { get; set; }
 
+    /// <summary>
+    /// Счет
+    /// </summary>
     public Invoice Invoice { get; set; }
 
+    /// <summary>
+    /// Сервис
+    /// </summary>
     public Service Service { get; set; }
 
-    public int Amount { get; set; }
+    /// <summary>
+    /// Количсетво услуги
+    /// </summary>
+    public Amount Amount { get; set; }
 }

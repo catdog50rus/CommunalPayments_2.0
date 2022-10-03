@@ -1,6 +1,6 @@
 ﻿using CnD.CommunalPayments.Server.Dao.Base;
 using CnD.CommunalPayments.Server.Dao.Entities.Models;
-using CnD.CommunalPayments.Server.Dao.IMPL.SQL;
+using CnD.CommunalPayments.Server.Dao.IMPL.SQL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace CnD.CommunalPayments.Server.Dao.Tests.InvoiceServicesDaoTests
 
         public BaseTests()
         {
-            _dao = new InvoiceServicesDao();
+            _dao = new InvoiceServicesDao(_dbContextMock.Object);
         }
     }
 }

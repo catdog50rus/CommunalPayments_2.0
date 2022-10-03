@@ -2,7 +2,7 @@
 
 public interface IBaseProviderService<T> where T : class, new()
 {
-    Task<ICollection<T>> GetEntitiesAsync(CancellationToken cancel = default);
+    Task<List<T>> GetEntitiesAsync(CancellationToken cancel = default);
 
     Task<T> GetEntityAsync(int id, CancellationToken cancel = default);
 

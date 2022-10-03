@@ -5,7 +5,8 @@ using CnD.CommunalPayments.Contracts.Models.Response;
 using CnD.CommunalPayments.Server.Api.Endpoints.Base;
 using CnD.CommunalPayments.Server.Api.Extensions;
 using CnD.CommunalPayments.Server.Domen.Models;
-using CnD.CommunalPayments.Server.Services.BL;
+using CnD.CommunalPayments.Server.Services.BL.Interfaces;
+using CnD.CommunalPayments.Server.Services.BL.Periods;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CnD.CommunalPayments.Server.Api.Endpoints.PeriodEndpoints;
@@ -19,8 +20,8 @@ public class PeriodEndpoint : EndpointDefinition
 
     public override void ConfigureApplication(WebApplication app)
     {
-        app.MapGet("/api/periods/get-periods", GetAllInvoces);
-        app.MapGet("/api/periods/get-period/{id:int}", GetInvoceById);
+        app.MapGet("/api/periods/get-periods", GetAll);
+        app.MapGet("/api/periods/get-period/{id:int}", GetById);
         app.MapPost("/api/periods/create-period", CreateNew);
         app.MapPut("/api/periods/update-period", Update);
         app.MapDelete("/api/periods/delete-period/{id:int}", Delete);
@@ -32,7 +33,7 @@ public class PeriodEndpoint : EndpointDefinition
     [ProducesResponseType(typeof(ResponseResult), 500)]
     // [Authorize(AuthenticationSchemes = AuthData.AuthSchemes)]
     [FeatureGroupName("Periods")]
-    private async Task<IResult> GetAllInvoces([FromServices] IPeriodService service, [FromServices] IMapper mapper, HttpContext context)
+    private async Task<IResult> GetAll([FromServices] IPeriodService service, [FromServices] IMapper mapper, HttpContext context)
     {
         var pagedListQueryParams = context.Request.Query.ParseToPages();
 
@@ -52,7 +53,7 @@ public class PeriodEndpoint : EndpointDefinition
     [ProducesResponseType(typeof(ResponseResult), 500)]
     // [Authorize(AuthenticationSchemes = AuthData.AuthSchemes)]
     [FeatureGroupName("Periods")]
-    private async Task<IResult> GetInvoceById([FromServices] IPeriodService service, [FromServices] IMapper mapper, int id)
+    private async Task<IResult> GetById([FromServices] IPeriodService service, [FromServices] IMapper mapper, int id)
     {
         if (id <= 0)
             return Results.Ok(ErrorResponseResult($"Не валидный ID: {id}"));
@@ -76,14 +77,14 @@ public class PeriodEndpoint : EndpointDefinition
     [ProducesResponseType(typeof(ResponseResult), 500)]
     // [Authorize(AuthenticationSchemes = AuthData.AuthSchemes)]
     [FeatureGroupName("Periods")]
-    private async Task<IResult> CreateNew([FromServices] IPeriodService service, [FromServices] IMapper mapper, [FromBody] CreatePeriodRequest newPeriod)
+    private async Task<IResult> CreateNew([FromServices] IPeriodService service, [FromServices] IMapper mapper, [FromBody] CreatePeriodRequest newItem)
     {
-        if (newPeriod is null)
+        if (newItem is null)
             return Results.Ok(ErrorResponseResult("Period пустой"));
 
-        var invoice = mapper.Map<Period>(newPeriod);
+        var item = mapper.Map<Period>(newItem);
 
-        var result = await service.CreateEntityAsync(invoice);
+        var result = await service.CreateEntityAsync(item);
 
         if (result is null)
             return Results.Ok(ErrorResponseResult("Ошибка создания"));
@@ -102,14 +103,14 @@ public class PeriodEndpoint : EndpointDefinition
     [ProducesResponseType(typeof(ResponseResult), 500)]
     // [Authorize(AuthenticationSchemes = AuthData.AuthSchemes)]
     [FeatureGroupName("Periods")]
-    private async Task<IResult> Update([FromServices] IPeriodService service, [FromServices] IMapper mapper, [FromBody] UpdatePeriodRequest updatePeriod)
+    private async Task<IResult> Update([FromServices] IPeriodService service, [FromServices] IMapper mapper, [FromBody] UpdatePeriodRequest updateItem)
     {
-        if (updatePeriod is null)
+        if (updateItem is null)
             return Results.Ok(ErrorResponseResult("Period пустой"));
 
-        var invoice = mapper.Map<Period>(updatePeriod);
+        var item = mapper.Map<Period>(updateItem);
 
-        var result = await service.UpdateEntityAsync(invoice);
+        var result = await service.UpdateEntityAsync(item);
 
         if (result is null)
             return Results.Ok(ErrorResponseResult("Ошибка редактирования"));
@@ -135,18 +136,9 @@ public class PeriodEndpoint : EndpointDefinition
 
         var result = await service.DeleteEntityAsync(id);
 
-        if (result is null)
+        if (!result)
             return Results.Ok(ErrorResponseResult($"Запись с ID: {id} не найдена"));
 
         return Results.Ok(new ResponseResult());
-    }
-
-    private ResponseResult ErrorResponseResult(string message)
-    {
-        return new ResponseResult
-        {
-            ErrorCode = 1,
-            ErrorMessage = message,
-        };
     }
 }
