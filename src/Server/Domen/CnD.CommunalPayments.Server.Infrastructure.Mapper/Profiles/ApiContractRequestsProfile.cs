@@ -3,6 +3,7 @@ using CnD.CommunalPayments.Contracts.Models.Invoices.Request;
 using CnD.CommunalPayments.Contracts.Models.Orders.Request;
 using CnD.CommunalPayments.Contracts.Models.Periods.Request;
 using CnD.CommunalPayments.Contracts.Models.Providers.Request;
+using CnD.CommunalPayments.Contracts.Models.Services.Request;
 using CnD.CommunalPayments.Server.Domen.Core.Helpers;
 using CnD.CommunalPayments.Server.Domen.Models;
 using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
@@ -67,6 +68,20 @@ internal class ApiContractRequestsProfile : Profile
 
         CreateMap<UpdateOrderRequest, Order>()
             .ForMember(x => x.Id, o => o.MapFrom(x => new ModelId(x.Id)))
+            ;
+
+        #endregion
+
+        #region Services
+
+        CreateMap<CreateServicesRequest, Service>()
+           .ForPath(x => x.Id, o => o.Ignore())
+           .ForMember(x => x.Name, o => o.MapFrom(x => new ServiceName(x.Name)))
+           ;
+
+        CreateMap<UpdateServiceRequest, Service>()
+            .ForMember(x => x.Id, o => o.MapFrom(x => new ModelId(x.Id)))
+            .ForMember(x => x.Name, o => o.MapFrom(x => new ServiceName(x.Name)))
             ;
 
         #endregion
