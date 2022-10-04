@@ -1,9 +1,10 @@
-﻿{
+{
   "profiles": {
-    "CnD.CommunalPayments.Server.Api": {
+    "CnD.CommunalPayments.Front.UI.BlazorUI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7096",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7210",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
