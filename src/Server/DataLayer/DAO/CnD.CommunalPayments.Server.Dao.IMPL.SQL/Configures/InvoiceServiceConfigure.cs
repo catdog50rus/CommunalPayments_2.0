@@ -43,7 +43,7 @@ namespace CnD.CommunalPayments.Server.Dao.IMPL.SQL.Configures
             builder.Property(x => x.Paid).HasColumnName("Paid");
 
             builder.HasOne(x => x.Invoice);
-            builder.HasOne(x => x.Order);
+            builder.HasOne(x => x.Order).WithOne().OnDelete(DeleteBehavior.Cascade);
         }
     }
 

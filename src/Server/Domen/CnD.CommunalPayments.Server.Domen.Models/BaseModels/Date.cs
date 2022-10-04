@@ -15,7 +15,7 @@ public class Date : IProperty<DateOnly>
 
 	public DateOnly GetValue()
 	{
-		throw new NotImplementedException();
+		return _date;
 	}
 
 	private DateOnly Validate(string strDate)

@@ -1,17 +1,9 @@
 ﻿using CnD.CommunalPayments.Server.Domen.Core.Query;
 using CnD.CommunalPayments.Server.Domen.Models;
+using CnD.CommunalPayments.Server.Services.BL.Base;
 
 namespace CnD.CommunalPayments.Server.Services.BL.Interfaces;
 
-public interface IPeriodService
+public interface IPeriodService:IBaseService<Period>
 {
-    Task<List<Period>> GetAllAsync(PagedListQueryParams queryParams, CancellationToken token = default);
-
-    Task<Period> GetEntityAsync(int id, CancellationToken token = default);
-
-    Task<Period> CreateEntityAsync(Period item, CancellationToken token = default);
-
-    Task<Period> UpdateEntityAsync(Period item, CancellationToken token = default);
-
-    Task<bool> DeleteEntityAsync(int id, CancellationToken token = default);
 }
