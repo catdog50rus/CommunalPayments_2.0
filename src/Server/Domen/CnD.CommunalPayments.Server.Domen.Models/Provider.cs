@@ -1,17 +1,13 @@
-﻿using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
+﻿using CnD.CommunalPayments.Server.Domen.Models.Base;
+using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
 
 namespace CnD.CommunalPayments.Server.Domen.Models;
 
 /// <summary>
 /// Поставщик услуги
 /// </summary>
-public class Provider
+public class Provider : DomenModelBase
 {
-    /// <summary>
-    /// Id
-    /// </summary>
-    public ModelId Id { get; set; }
-
     /// <summary>
     /// Наименование поставщика услуги ЖКХ
     /// </summary>

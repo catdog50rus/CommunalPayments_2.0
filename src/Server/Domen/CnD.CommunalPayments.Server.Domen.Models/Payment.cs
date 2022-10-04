@@ -1,17 +1,13 @@
-﻿using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
+﻿using CnD.CommunalPayments.Server.Domen.Models.Base;
+using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
 
 namespace CnD.CommunalPayments.Server.Domen.Models;
 
 /// <summary>
 /// Оплата
 /// </summary>
-public class Payment
+public class Payment : DomenModelBase
 {
-    /// <summary>
-    /// Id
-    /// </summary>
-    public ModelId Id { get; set; }
-
     /// <summary>
     /// Дата платежа
     /// </summary>

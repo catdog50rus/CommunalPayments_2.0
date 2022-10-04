@@ -1,17 +1,13 @@
-﻿using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
+﻿using CnD.CommunalPayments.Server.Domen.Models.Base;
+using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
 
 namespace CnD.CommunalPayments.Server.Domen.Models;
 
 /// <summary>
 /// Счет на услуги
 /// </summary>
-public class Invoice
+public class Invoice : DomenModelBase
 {
-    /// <summary>
-    /// Id счета
-    /// </summary>
-    public ModelId Id { get; set; }
-
     /// <summary>
     /// Период за который выставлен счет
     /// </summary>

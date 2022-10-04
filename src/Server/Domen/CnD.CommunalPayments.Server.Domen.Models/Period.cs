@@ -1,4 +1,5 @@
-﻿using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
+﻿using CnD.CommunalPayments.Server.Domen.Models.Base;
+using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
 using System.ComponentModel.DataAnnotations;
 
 namespace CnD.CommunalPayments.Server.Domen.Models;
@@ -6,13 +7,8 @@ namespace CnD.CommunalPayments.Server.Domen.Models;
 /// <summary>
 /// Период счета
 /// </summary>
-public class Period
+public class Period : DomenModelBase
 {
-    /// <summary>
-    /// Id
-    /// </summary>
-    public ModelId Id { get; set; }
-
     /// <summary>
     /// Год
     /// </summary>

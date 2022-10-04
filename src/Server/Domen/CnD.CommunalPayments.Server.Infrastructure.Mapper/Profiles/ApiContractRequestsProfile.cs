@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CnD.CommunalPayments.Contracts.Models.Invoices.Request;
+using CnD.CommunalPayments.Contracts.Models.Orders.Request;
 using CnD.CommunalPayments.Contracts.Models.Periods.Request;
 using CnD.CommunalPayments.Contracts.Models.Providers.Request;
 using CnD.CommunalPayments.Server.Domen.Core.Helpers;
@@ -54,6 +55,18 @@ internal class ApiContractRequestsProfile : Profile
             .ForMember(x => x.Id, o => o.MapFrom(x => new ModelId(x.Id)))
             .ForMember(x => x.NameProvider, o => o.MapFrom(x => new ServiceName(x.NameProvider)))
             .ForMember(x => x.WebSite, o => o.MapFrom(x => new WebSite(x.WebSite)))
+            ;
+
+        #endregion
+
+        #region Orders
+
+        CreateMap<CreateOrderRequest, Order>()
+            .ForPath(x => x.Id, o => o.Ignore())
+            ;
+
+        CreateMap<UpdateOrderRequest, Order>()
+            .ForMember(x => x.Id, o => o.MapFrom(x => new ModelId(x.Id)))
             ;
 
         #endregion
