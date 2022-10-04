@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CnD.CommunalPayments.Contracts.Models.Invoices.Request;
+using CnD.CommunalPayments.Contracts.Models.InvoiceServices.Request;
 using CnD.CommunalPayments.Contracts.Models.Orders.Request;
 using CnD.CommunalPayments.Contracts.Models.Periods.Request;
 using CnD.CommunalPayments.Contracts.Models.Providers.Request;
@@ -67,6 +68,29 @@ internal class ApiContractRequestsProfile : Profile
 
         CreateMap<UpdateOrderRequest, Order>()
             .ForMember(x => x.Id, o => o.MapFrom(x => new ModelId(x.Id)))
+            ;
+
+        #endregion
+
+        #region InvoiceServices
+
+        CreateMap<CreateInvoiceServicesRequest, InvoiceServices>()
+           .ForPath(x => x.Invoice, o => o.MapFrom(i => new Invoice { Id = new ModelId(i.InvoiceId) }))
+
+           .ForPath(x => x.Service, o => o.MapFrom(i => new Service { Id = new ModelId(i.ServiceId) }))
+
+           //.ForPath(x => x.Amount, o => o.MapFrom(i => new Amount(i.Amount)))
+
+           .ForPath(x => x.Id, o => o.Ignore())
+           ;
+
+        CreateMap<UpdateInvoiceServicesRequest, InvoiceServices>()
+            .ForPath(x => x.Invoice, o => o.MapFrom(i => new Invoice { Id = new ModelId(i.InvoiceId) }))
+
+            .ForPath(x => x.Service, o => o.MapFrom(i => new Service { Id = new ModelId(i.ServiceId) }))
+
+            //.ForPath(x => x.Amount, o => o.MapFrom(i => new Amount(i.Amount)))
+
             ;
 
         #endregion

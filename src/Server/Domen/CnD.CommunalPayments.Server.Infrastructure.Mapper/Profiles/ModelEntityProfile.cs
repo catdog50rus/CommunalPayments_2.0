@@ -111,5 +111,59 @@ internal class ModelEntityProfile : Profile
 
         #endregion
 
+        #region InvoiceServices
+
+        CreateMap<InvoiceServices, InvoiceServicesEntity>()
+            .ForPath(x => x.InvoiceId, o => o.MapFrom(i => i.Invoice.Id.Value))
+            .ForPath(x => x.Invoice, o => o.Ignore())
+
+            .ForPath(x => x.ServiceId, o => o.MapFrom(i => i.Service.Id.Value))
+            .ForPath(x => x.Service, o => o.Ignore())
+
+            .ForPath(x => x.Id, o => o.MapFrom(i => i.Id.Value))
+            .ForPath(x => x.Amount, o => o.MapFrom(i => i.Amount.Value))
+
+            .ForPath(x => x.UpdatedAt, o => o.Ignore())
+            .ForPath(x => x.CreatedAt, o => o.Ignore())
+            //.ForPath(x => x.CreatorName, o => o.Ignore())
+            //.ForPath(x => x.UpdatorName, o => o.Ignore())
+            ;
+
+
+        CreateMap<InvoiceServicesEntity, InvoiceServices>()
+            .ForPath(x => x.Invoice, o => o.MapFrom(i => new Invoice
+            {
+                Id = new ModelId(i.InvoiceId),
+                IsPaid = i.Invoice.IsPaid,
+                Period = new Period()
+                {
+                    Id = new ModelId(i.Invoice.PeriodId),
+                    Month = EnumHelper.GetValueFromDescr<MonthName>(i.Invoice.Period.Month),
+                    Year = i.Invoice.Period.Year
+                },
+                Provider = new Provider()
+                {
+                    Id = new ModelId(i.Invoice.ProviderId),
+                    NameProvider = new ServiceName(i.Invoice.Provider.NameProvider),
+                    WebSite = new WebSite(i.Invoice.Provider.WebSite)
+                },
+                Sum = new Sum(i.Invoice.Sum),            
+            }))
+
+            .ForPath(x => x.Service, o => o.MapFrom(i => new Service
+            {
+                Id = new ModelId(i.ServiceId),
+                IsCounter = i.Service.IsCounter,
+                Name = new ServiceName(i.Service.Name)
+            }))
+
+            .ForPath(x => x.Id, o => o.MapFrom(i => new ModelId(i.Id)))
+            .ForPath(x => x.Amount, o => o.MapFrom(i => new Amount(i.Amount)))
+
+
+            ;
+
+        #endregion
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CnD.CommunalPayments.Contracts.Models.Invoices.Response;
+using CnD.CommunalPayments.Contracts.Models.InvoiceServices.Response;
 using CnD.CommunalPayments.Contracts.Models.Orders.Response;
 using CnD.CommunalPayments.Contracts.Models.Periods.Response;
 using CnD.CommunalPayments.Contracts.Models.Providers.Response;
@@ -121,6 +122,43 @@ internal class ApiContractResponsesProfile : Profile
             .ForMember(dist => dist.Id,
                        opt => opt.MapFrom(i => i.Id.GetValue()))
             ;
+
+        #endregion
+
+        #region InvoiceServices
+
+        CreateMap<InvoiceServices, CreateInvoiceServicesResponse>()
+           .ForMember(dist => dist.ServiceId,
+                      opt => opt.MapFrom(i => i.Service.Id.Value))
+           .ForMember(dist => dist.InvoiceId,
+                      opt => opt.MapFrom(i => i.Invoice.Id.Value))
+           .ForMember(dist => dist.Amount,
+                      opt => opt.MapFrom(i => i.Amount.Value))
+           .ForMember(dist => dist.Id,
+                      opt => opt.MapFrom(i => i.Id.Value))
+           ;
+
+        CreateMap<InvoiceServices, UpdateInvoiceServicesResponse>()
+           .ForMember(dist => dist.ServiceId,
+                      opt => opt.MapFrom(i => i.Service.Id.Value))
+           .ForMember(dist => dist.InvoiceId,
+                      opt => opt.MapFrom(i => i.Invoice.Id.Value))
+           .ForMember(dist => dist.Amount,
+                      opt => opt.MapFrom(i => i.Amount.Value))
+           .ForMember(dist => dist.Id,
+                      opt => opt.MapFrom(i => i.Id.Value))
+           ;
+
+        CreateMap<InvoiceServices, InvoiceServicesResponse>()
+           .ForMember(dist => dist.ServiceId,
+                      opt => opt.MapFrom(i => i.Service.Id.Value))
+           .ForMember(dist => dist.InvoiceId,
+                      opt => opt.MapFrom(i => i.Invoice.Id.Value))
+           .ForMember(dist => dist.Amount,
+                      opt => opt.MapFrom(i => i.Amount.Value))
+           .ForMember(dist => dist.Id,
+                      opt => opt.MapFrom(i => i.Id.Value))
+           ;
 
         #endregion
     }

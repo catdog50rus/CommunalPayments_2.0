@@ -25,7 +25,7 @@ public abstract class BaseService<TModel> : IBaseService<TModel> where TModel : 
 
     public virtual async Task<TModel> CreateEntityAsync(TModel item, CancellationToken token = default)
     {
-        return await Task.Run(() => _daoProvider.CreateEntityAsync(item), token).ConfigureAwait(false);
+        return await _daoProvider.CreateEntityAsync(item, token).ConfigureAwait(false);
     }
 
     public virtual async Task<TModel> UpdateEntityAsync(TModel item, CancellationToken token = default)
