@@ -38,6 +38,29 @@ public class InvoiceServicesDao : DaoBase<InvoiceServicesEntity>
     public InvoiceServicesDao(CommunalPaymentsDbContext context) : base(context)
     {
     }
+
+    public override async Task<InvoiceServicesEntity> GetEntityAsync(int id, CancellationToken cancel = default)
+    {
+        return await Items
+            .AsNoTracking()
+            .Include(x => x.Invoice).ThenInclude(x=>x.Period)
+            .Include(x => x.Invoice).ThenInclude(x => x.Provider)
+            .Include(x=>x.Service)
+            .Where(x => x.Id == id)
+            .FirstOrDefaultAsync(cancel)
+            .ConfigureAwait(false);
+    }
+
+    public override async Task<ICollection<InvoiceServicesEntity>> GetEntitiesAsync(CancellationToken cancel = default)
+    {
+        return await Items
+            .AsNoTracking()
+            .Include(x => x.Invoice).ThenInclude(x => x.Period)
+            .Include(x => x.Invoice).ThenInclude(x => x.Provider)
+            .Include(x => x.Service)
+            .ToListAsync(cancel)
+            .ConfigureAwait(false);
+    }
 }
 
 public class OrderDao : DaoBase<OrderEntity>
