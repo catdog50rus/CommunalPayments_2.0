@@ -75,6 +75,29 @@ public class PaymentDao : DaoBase<PaymentEntity>
     public PaymentDao(CommunalPaymentsDbContext context) : base(context)
     {
     }
+
+    public override async Task<PaymentEntity> GetEntityAsync(int id, CancellationToken cancel = default)
+    {
+        return await Items
+            .AsNoTracking()
+            .Include(x => x.Invoice).ThenInclude(x => x.Period)
+            .Include(x => x.Invoice).ThenInclude(x => x.Provider)
+            .Include(x=>x.Order)
+            .Where(x => x.Id == id)
+            .FirstOrDefaultAsync(cancel)
+            .ConfigureAwait(false);
+    }
+
+    public override async Task<ICollection<PaymentEntity>> GetEntitiesAsync(CancellationToken cancel = default)
+    {
+        return await Items
+            .AsNoTracking()
+            .Include(x => x.Invoice).ThenInclude(x => x.Period)
+            .Include(x => x.Invoice).ThenInclude(x => x.Provider)
+            .Include(x => x.Order)
+            .ToListAsync(cancel)
+            .ConfigureAwait(false);
+    }
 }
 
 public class PeriodDao : DaoBase<PeriodEntity>
@@ -106,6 +129,25 @@ public class ServiceCounterDao : DaoBase<ServiceCounterEntity>
 {
     public ServiceCounterDao(CommunalPaymentsDbContext context) : base(context)
     {
+    }
+
+    public override async Task<ServiceCounterEntity> GetEntityAsync(int id, CancellationToken cancel = default)
+    {
+        return await Items
+            .AsNoTracking()
+            .Include(x => x.Service)
+            .Where(x => x.Id == id)
+            .FirstOrDefaultAsync(cancel)
+            .ConfigureAwait(false);
+    }
+
+    public override async Task<ICollection<ServiceCounterEntity>> GetEntitiesAsync(CancellationToken cancel = default)
+    {
+        return await Items
+            .AsNoTracking()
+            .Include(x => x.Service)
+            .ToListAsync(cancel)
+            .ConfigureAwait(false);
     }
 }
 
