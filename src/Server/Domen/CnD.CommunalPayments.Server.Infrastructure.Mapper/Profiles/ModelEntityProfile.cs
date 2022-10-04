@@ -184,5 +184,92 @@ internal class ModelEntityProfile : Profile
 
         #endregion
 
+        #region Payments
+
+        CreateMap<Payment, PaymentEntity>()
+            .ForPath(x => x.InvoiceId, o => o.MapFrom(i => i.Invoice.Id.Value))
+            .ForPath(x => x.Invoice, o => o.Ignore())
+
+            .ForPath(x => x.OrderId, o => o.MapFrom(i => i.Order.Id.Value))
+            .ForPath(x => x.Order, o => o.Ignore())
+
+            .ForPath(x => x.Id, o => o.MapFrom(i => i.Id.Value))
+            .ForPath(x => x.PaymentSum, o => o.MapFrom(i => i.PaymentSum.Value))
+            .ForPath(x => x.DatePayment, o => o.MapFrom(i => i.DatePayment.GetValue().ToShortDateString()))
+
+            .ForPath(x => x.UpdatedAt, o => o.Ignore())
+            .ForPath(x => x.CreatedAt, o => o.Ignore())
+            //.ForPath(x => x.CreatorName, o => o.Ignore())
+            //.ForPath(x => x.UpdatorName, o => o.Ignore())
+            ;
+
+
+        CreateMap<PaymentEntity, Payment>()
+            .ForPath(x => x.Invoice, o => o.MapFrom(i => new Invoice
+            {
+                Id = new ModelId(i.InvoiceId),
+                IsPaid = i.Invoice.IsPaid,
+                Period = new Period()
+                {
+                    Id = new ModelId(i.Invoice.PeriodId),
+                    Month = EnumHelper.GetValueFromDescr<MonthName>(i.Invoice.Period.Month),
+                    Year = i.Invoice.Period.Year
+                },
+                Provider = new Provider()
+                {
+                    Id = new ModelId(i.Invoice.ProviderId),
+                    NameProvider = new ServiceName(i.Invoice.Provider.NameProvider),
+                    WebSite = new WebSite(i.Invoice.Provider.WebSite)
+                },
+                Sum = new Sum(i.Invoice.Sum),
+            }))
+
+            .ForPath(x => x.Order, o => o.MapFrom(i => new Order
+            {
+                Id = new ModelId(i.OrderId),
+                FileName = i.Order.FileName,
+                OrderScreen = i.Order.OrderScreen
+            }))
+
+            .ForPath(x => x.Id, o => o.MapFrom(i => new ModelId(i.Id)))
+            .ForPath(x => x.PaymentSum, o => o.MapFrom(i => new Sum(i.PaymentSum)))
+            .ForPath(x => x.DatePayment, o => o.MapFrom(i => new Date(i.DatePayment)))
+
+            ;
+
+        #endregion
+
+        #region ServiceCounter
+
+        CreateMap<ServiceCounter, ServiceCounterEntity>()
+            .ForPath(x => x.ServiceId, o => o.MapFrom(i => i.Service.Id.Value))
+            .ForPath(x => x.Service, o => o.Ignore())
+
+            .ForPath(x => x.Id, o => o.MapFrom(i => i.Id.Value))
+            .ForPath(x => x.Value, o => o.MapFrom(i => i.Amount.Value))
+            .ForPath(x => x.DateCount, o => o.MapFrom(i => i.DateCount.GetValue().ToShortDateString()))
+
+            .ForPath(x => x.UpdatedAt, o => o.Ignore())
+            .ForPath(x => x.CreatedAt, o => o.Ignore())
+            //.ForPath(x => x.CreatorName, o => o.Ignore())
+            //.ForPath(x => x.UpdatorName, o => o.Ignore())
+            ;
+
+
+        CreateMap<ServiceCounterEntity, ServiceCounter>()
+            .ForPath(x => x.Service, o => o.MapFrom(i => new Service
+            {
+                Id = new ModelId(i.ServiceId),
+                IsCounter = i.Service.IsCounter,
+                Name = new ServiceName(i.Service.Name),
+            }))
+
+            .ForPath(x => x.Id, o => o.MapFrom(i => new ModelId(i.Id)))
+            .ForPath(x => x.Amount, o => o.MapFrom(i => new Amount(i.Value)))
+            .ForPath(x => x.DateCount, o => o.MapFrom(i => new Date(i.DateCount)))
+            ;
+
+        #endregion
+
     }
 }

@@ -2,8 +2,10 @@
 using CnD.CommunalPayments.Contracts.Models.Invoices.Request;
 using CnD.CommunalPayments.Contracts.Models.InvoiceServices.Request;
 using CnD.CommunalPayments.Contracts.Models.Orders.Request;
+using CnD.CommunalPayments.Contracts.Models.Payments.Request;
 using CnD.CommunalPayments.Contracts.Models.Periods.Request;
 using CnD.CommunalPayments.Contracts.Models.Providers.Request;
+using CnD.CommunalPayments.Contracts.Models.ServiceCounters.Request;
 using CnD.CommunalPayments.Contracts.Models.Services.Request;
 using CnD.CommunalPayments.Server.Domen.Core.Helpers;
 using CnD.CommunalPayments.Server.Domen.Models;
@@ -94,8 +96,6 @@ internal class ApiContractRequestsProfile : Profile
 
            .ForPath(x => x.Service, o => o.MapFrom(i => new Service { Id = new ModelId(i.ServiceId) }))
 
-           //.ForPath(x => x.Amount, o => o.MapFrom(i => new Amount(i.Amount)))
-
            .ForPath(x => x.Id, o => o.Ignore())
            ;
 
@@ -104,8 +104,40 @@ internal class ApiContractRequestsProfile : Profile
 
             .ForPath(x => x.Service, o => o.MapFrom(i => new Service { Id = new ModelId(i.ServiceId) }))
 
-            //.ForPath(x => x.Amount, o => o.MapFrom(i => new Amount(i.Amount)))
+            ;
 
+        #endregion
+
+        #region Payments
+
+        CreateMap<CreatePaymentRequest, Payment>()
+           .ForPath(x => x.Invoice, o => o.MapFrom(i => new Invoice { Id = new ModelId(i.InvoiceId) }))
+
+           .ForPath(x => x.Order, o => o.MapFrom(i => new Order { Id = new ModelId(i.OrderId) }))
+
+           .ForPath(x => x.Id, o => o.Ignore())
+           ;
+
+        CreateMap<UpdatePaymentRequest, Payment>()
+            .ForPath(x => x.Invoice, o => o.MapFrom(i => new Invoice { Id = new ModelId(i.InvoiceId) }))
+
+            .ForPath(x => x.Order, o => o.MapFrom(i => new Order { Id = new ModelId(i.OrderId) }))
+
+            ;
+
+        #endregion
+
+
+        #region ServiceCointers
+
+        CreateMap<CreateServiceCounterRequest, ServiceCounter>()
+           .ForPath(x => x.Service, o => o.MapFrom(i => new Service { Id = new ModelId(i.ServiceId) }))
+
+           .ForPath(x => x.Id, o => o.Ignore())
+           ;
+
+        CreateMap<UpdateServiceCounterRequest, ServiceCounter>()
+            .ForPath(x => x.Service, o => o.MapFrom(i => new Service { Id = new ModelId(i.ServiceId) }))    
             ;
 
         #endregion
