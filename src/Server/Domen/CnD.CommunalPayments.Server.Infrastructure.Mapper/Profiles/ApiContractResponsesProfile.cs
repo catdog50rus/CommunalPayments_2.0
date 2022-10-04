@@ -4,6 +4,7 @@ using CnD.CommunalPayments.Contracts.Models.InvoiceServices.Response;
 using CnD.CommunalPayments.Contracts.Models.Orders.Response;
 using CnD.CommunalPayments.Contracts.Models.Periods.Response;
 using CnD.CommunalPayments.Contracts.Models.Providers.Response;
+using CnD.CommunalPayments.Contracts.Models.Services.Response;
 using CnD.CommunalPayments.Server.Domen.Core.Helpers;
 using CnD.CommunalPayments.Server.Domen.Models;
 
@@ -121,6 +122,31 @@ internal class ApiContractResponsesProfile : Profile
         CreateMap<Order, CreateOrderResponse>()
             .ForMember(dist => dist.Id,
                        opt => opt.MapFrom(i => i.Id.GetValue()))
+            ;
+
+        #endregion
+
+        #region Services
+
+        CreateMap<Service, ServiceResponse>()
+            .ForMember(dist => dist.Id,
+                       opt => opt.MapFrom(i => i.Id.GetValue()))
+            .ForMember(dist => dist.Name,
+                       opt => opt.MapFrom(i => i.Name.GetValue()))
+            ;
+
+        CreateMap<Service, UpdateServiceResponse>()
+            .ForMember(dist => dist.Id,
+                       opt => opt.MapFrom(i => i.Id.GetValue()))
+            .ForMember(dist => dist.Name,
+                       opt => opt.MapFrom(i => i.Name.GetValue()))
+            ;
+
+        CreateMap<Service, CreateServiceResponse>()
+            .ForMember(dist => dist.Id,
+                       opt => opt.MapFrom(i => i.Id.GetValue()))
+            .ForMember(dist => dist.Name,
+                       opt => opt.MapFrom(i => i.Name.GetValue()))
             ;
 
         #endregion

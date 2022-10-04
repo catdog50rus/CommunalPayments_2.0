@@ -111,6 +111,25 @@ internal class ModelEntityProfile : Profile
 
         #endregion
 
+        #region Services
+
+        CreateMap<Service, ServiceEntity>()
+            .ForPath(x => x.Id, o => o.MapFrom(i => i.Id.Value))
+            .ForPath(x => x.Name, o => o.MapFrom(i => i.Name.GetValue()))
+
+            .ForPath(x => x.UpdatedAt, o => o.Ignore())
+            .ForPath(x => x.CreatedAt, o => o.Ignore())
+            //.ForPath(x => x.CreatorName, o => o.Ignore())
+            //.ForPath(x => x.UpdatorName, o => o.Ignore())
+            ;
+
+        CreateMap<ServiceEntity, Service>()
+            .ForPath(x => x.Id, o => o.MapFrom(i => new ModelId(i.Id)))
+            .ForPath(x => x.Name, o => o.MapFrom(i => new ServiceName(i.Name)))
+            ;
+
+        #endregion
+
         #region InvoiceServices
 
         CreateMap<InvoiceServices, InvoiceServicesEntity>()
