@@ -94,5 +94,22 @@ internal class ModelEntityProfile : Profile
 
         #endregion
 
+        #region Orders
+
+        CreateMap<Order, OrderEntity>()
+            .ForPath(x => x.Id, o => o.MapFrom(i => i.Id.Value))
+
+            .ForPath(x => x.UpdatedAt, o => o.Ignore())
+            .ForPath(x => x.CreatedAt, o => o.Ignore())
+            //.ForPath(x => x.CreatorName, o => o.Ignore())
+            //.ForPath(x => x.UpdatorName, o => o.Ignore())
+            ;
+
+        CreateMap<OrderEntity, Order>()
+            .ForPath(x => x.Id, o => o.MapFrom(i => new ModelId(i.Id)))
+            ;
+
+        #endregion
+
     }
 }

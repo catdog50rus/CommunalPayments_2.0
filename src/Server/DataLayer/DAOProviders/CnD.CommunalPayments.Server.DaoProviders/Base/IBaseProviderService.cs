@@ -1,6 +1,8 @@
-﻿namespace CnD.CommunalPayments.Server.DaoProviders.Base;
+﻿using CnD.CommunalPayments.Server.Domen.Models.Base;
 
-public interface IBaseProviderService<T> where T : class, new()
+namespace CnD.CommunalPayments.Server.DaoProviders.Base;
+
+public interface IBaseProviderService<T> where T : IDomenModel, new()
 {
     Task<List<T>> GetEntitiesAsync(CancellationToken cancel = default);
 

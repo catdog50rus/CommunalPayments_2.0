@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using CnD.CommunalPayments.Server.Dao.Base;
 using CnD.CommunalPayments.Server.DaoProviders.Base;
+using CnD.CommunalPayments.Server.Domen.Models.Base;
 
 namespace CnD.CommunalPayments.Server.DaoProviders.IMPL.Base;
 
 public abstract class BaseProviderService<T, TEntity> : IBaseProviderService<T> 
-    where T : class, new()
+    where T : IDomenModel, new()
     where TEntity : class, new()
 {
     protected readonly IMapper _mapper;

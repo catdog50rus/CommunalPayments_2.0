@@ -13,13 +13,13 @@ public abstract class EndpointDefinition : IEndpointDefinition
     /// <param name="app"></param>
     public virtual void ConfigureApplication(WebApplication app) { }
 
-
     /// <summary>
     /// Microservice dependency injection configuration setup
     /// </summary>
     /// <param name="services"></param>
     /// <param name="configuration"></param>
     public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration) { }
+
 
     protected virtual ResponseResult ErrorResponseResult(string message)
     {

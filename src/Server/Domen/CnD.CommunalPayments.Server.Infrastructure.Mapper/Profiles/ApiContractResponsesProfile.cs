@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CnD.CommunalPayments.Contracts.Models.Invoices.Response;
+using CnD.CommunalPayments.Contracts.Models.Orders.Response;
 using CnD.CommunalPayments.Contracts.Models.Periods.Response;
 using CnD.CommunalPayments.Contracts.Models.Providers.Response;
 using CnD.CommunalPayments.Server.Domen.Core.Helpers;
@@ -100,6 +101,25 @@ internal class ApiContractResponsesProfile : Profile
                        opt => opt.MapFrom(i => i.NameProvider.GetValue()))
             .ForMember(dist => dist.WebSite,
                        opt => opt.MapFrom(i => i.WebSite.GetValue()))
+            ;
+
+        #endregion
+
+        #region Orders
+
+        CreateMap<Order, OrderResponse>()
+            .ForMember(dist => dist.Id,
+                       opt => opt.MapFrom(i => i.Id.GetValue()))
+            ;
+
+        CreateMap<Order, UpdateOrderResponse>()
+            .ForMember(dist => dist.Id,
+                       opt => opt.MapFrom(i => i.Id.GetValue()))
+            ;
+
+        CreateMap<Order, CreateOrderResponse>()
+            .ForMember(dist => dist.Id,
+                       opt => opt.MapFrom(i => i.Id.GetValue()))
             ;
 
         #endregion
