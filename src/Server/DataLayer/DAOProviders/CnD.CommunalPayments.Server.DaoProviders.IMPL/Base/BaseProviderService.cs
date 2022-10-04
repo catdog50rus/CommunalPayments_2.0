@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using CnD.CommunalPayments.Server.Dao.Base;
 using CnD.CommunalPayments.Server.DaoProviders.Base;
+using CnD.CommunalPayments.Server.Domen.Models.Base;
 
 namespace CnD.CommunalPayments.Server.DaoProviders.IMPL.Base;
 
 public abstract class BaseProviderService<T, TEntity> : IBaseProviderService<T> 
-    where T : class, new()
+    where T : IDomenModel, new()
     where TEntity : class, new()
 {
     protected readonly IMapper _mapper;
@@ -17,7 +18,7 @@ public abstract class BaseProviderService<T, TEntity> : IBaseProviderService<T>
         _dao = dao ?? throw new ArgumentNullException(nameof(dao));
     }
 
-    public virtual async Task<ICollection<T>> GetEntitiesAsync(CancellationToken cancel = default)
+    public virtual async Task<List<T>> GetEntitiesAsync(CancellationToken cancel = default)
     {
         var entityList = await _dao.GetEntitiesAsync(cancel).ConfigureAwait(false);
 

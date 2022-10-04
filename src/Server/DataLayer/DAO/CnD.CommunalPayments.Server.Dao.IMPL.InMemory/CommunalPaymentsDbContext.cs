@@ -7,6 +7,9 @@ namespace CnD.CommunalPayments.Server.Dao.IMPL.InMemory;
 public class CommunalPaymentsDbContext : DbContext
 {
     public DbSet<InvoiceEntity> Invoices { get; set; }
+    public DbSet<ProviderEntity> Providers { get; set; }
+
+    public DbSet<PeriodEntity> Periods { get; set; }
 
     public CommunalPaymentsDbContext(DbContextOptions<CommunalPaymentsDbContext> options) : base(options) { }
 

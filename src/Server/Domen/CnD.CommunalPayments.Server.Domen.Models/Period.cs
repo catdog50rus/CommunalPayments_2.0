@@ -1,17 +1,31 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CnD.CommunalPayments.Server.Domen.Models.Base;
+using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace CnD.CommunalPayments.Server.Domen.Models;
 
-public class Period
+/// <summary>
+/// Период счета
+/// </summary>
+public class Period : DomenModelBase
 {
-    public int Id { get; set; }
-
+    /// <summary>
+    /// Год
+    /// </summary>
     public string Year { get; set; } = string.Empty;
 
-    public PeriodsName Month { get; set; }
+    /// <summary>
+    /// Название месяца
+    /// </summary>
+    public MonthName Month { get; set; }
+
+    public override string ToString()
+    {
+        return $"{Month} {Year}";
+    }
 }
 
-public enum PeriodsName
+public enum MonthName
 {
     [Display(Name = "Не выбран")]
     None = 0,

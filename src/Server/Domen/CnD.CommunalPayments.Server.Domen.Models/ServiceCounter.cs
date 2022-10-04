@@ -1,12 +1,25 @@
-﻿namespace CnD.CommunalPayments.Server.Domen.Models;
+﻿using CnD.CommunalPayments.Server.Domen.Models.Base;
+using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
 
-public class ServiceCounter
+namespace CnD.CommunalPayments.Server.Domen.Models;
+
+/// <summary>
+/// Счетчик услуги
+/// </summary>
+public class ServiceCounter : DomenModelBase
 {
-    public int Id { get; set; }
-
+    /// <summary>
+    /// Услуга
+    /// </summary>
     public Service Service { get; set; }
 
-    public string DateCount { get; set; }
+    /// <summary>
+    /// Дата передачи показаний
+    /// </summary>
+    public Date DateCount { get; set; }
 
-    public int Value { get; set; }
+    /// <summary>
+    /// Количество услуги
+    /// </summary>
+    public Amount Amount { get; set; }
 }

@@ -1,18 +1,22 @@
-﻿namespace CnD.CommunalPayments.Server.Domen.Models;
+﻿using CnD.CommunalPayments.Server.Domen.Models.Base;
+using CnD.CommunalPayments.Server.Domen.Models.BaseModels;
 
-public class Payment
+namespace CnD.CommunalPayments.Server.Domen.Models;
+
+/// <summary>
+/// Оплата
+/// </summary>
+public class Payment : DomenModelBase
 {
-    public int Id { get; set; }
-
     /// <summary>
     /// Дата платежа
     /// </summary>
-    public string DatePayment { get; set; }
+    public Date DatePayment { get; set; }
 
     /// <summary>
     /// Сумма платежа
     /// </summary>
-    public decimal PaymentSum { get; set; }
+    public Sum PaymentSum { get; set; }
  
     /// <summary>
     /// Счет за ЖКХ
@@ -25,7 +29,7 @@ public class Payment
     public bool Paid { get; set; }
 
     /// <summary>
-    /// Скан платежки
+    /// Платежка
     /// </summary>
     public Order Order { get; set; }
 }
