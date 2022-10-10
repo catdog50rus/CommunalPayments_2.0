@@ -1,0 +1,31 @@
+﻿@using CnD.CommunalPayments.Contracts.Models.Periods.Response
+
+<tr>
+    @*Год*@
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment>
+            @Period.Year
+        </ColFragment>
+
+    </TableColumnComponent>
+    @*Количество*@
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment >
+            @Period.Month
+        </ColFragment>
+
+    </TableColumnComponent>
+    @*Блок кнопок*@
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment >
+            <button class="btn btn-sm btn-info" @onclick="()=>EditEvent.InvokeAsync(Period)">Изменить</button>
+            <button class="btn btn-sm btn-danger" @onclick="()=>RemoveEvent.InvokeAsync(Period)">Удалить</button>
+        </ColFragment>
+    </TableColumnComponent>
+</tr>
+
+@code{
+    [Parameter] public PeriodResponse Period { get; set; }
+    [Parameter] public EventCallback<PeriodResponse> RemoveEvent { get; set; }
+    [Parameter] public EventCallback<PeriodResponse> EditEvent { get; set; }
+}

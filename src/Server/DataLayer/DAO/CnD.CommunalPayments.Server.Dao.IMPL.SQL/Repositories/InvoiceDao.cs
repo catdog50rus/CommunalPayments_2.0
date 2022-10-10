@@ -13,13 +13,13 @@ public class InvoiceDao : DaoBase<InvoiceEntity>
 
     public override async Task<InvoiceEntity> GetEntityAsync(int id, CancellationToken cancel = default)
     {
-        return await Items
+        return (await Items
             .AsNoTracking()
             .Include(x => x.Period)
             .Include(x => x.Provider)
             .Where(x => x.Id == id)
             .FirstOrDefaultAsync(cancel)
-            .ConfigureAwait(false);
+            .ConfigureAwait(false))!;
     }
 
     public override async Task<ICollection<InvoiceEntity>> GetEntitiesAsync(CancellationToken cancel = default)

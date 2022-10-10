@@ -1,0 +1,29 @@
+﻿@*<tr>
+    <!--Наименование услуги-->
+    <TableColumnComponent>
+        <ColFragment>
+            @InvoiceServices.Service.NameService
+        </ColFragment>
+    </TableColumnComponent>
+    <!--Показания счетчика-->
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment>
+            @InvoiceServices.Amount
+        </ColFragment>
+    </TableColumnComponent>
+    <!--Блок кнопок-->
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment>
+            <button class="btn btn-sm btn-info" @onclick="(() => EditEvent.InvokeAsync(InvoiceServices))">Изменить</button>
+            <button class="btn btn-sm btn-danger" @onclick="(() => RemoveEvent.InvokeAsync(InvoiceServices))">Удалить</button>
+        </ColFragment>
+    </TableColumnComponent>
+</tr>
+
+@code {
+
+    [Parameter] public InvoiceServices InvoiceServices { get; set; }
+    [Parameter] public EventCallback<InvoiceServices> RemoveEvent { get; set; }
+    [Parameter] public EventCallback<InvoiceServices> EditEvent { get; set; }
+}
+*@

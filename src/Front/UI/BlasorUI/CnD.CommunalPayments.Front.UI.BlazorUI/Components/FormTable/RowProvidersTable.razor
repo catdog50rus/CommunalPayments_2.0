@@ -1,0 +1,32 @@
+﻿@using CnD.CommunalPayments.Contracts.Models.Providers.Response
+<tr>
+    <!--Наименование услуги-->
+    <TableColumnComponent>
+        <ColFragment>
+            @Provider.NameProvider
+        </ColFragment>
+
+    </TableColumnComponent>
+    <!--Количество-->
+    <TableColumnComponent>
+        <ColFragment>
+            @Provider.WebSite
+        </ColFragment>
+
+    </TableColumnComponent>
+    <!--Блок кнопок-->
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment >
+            <button class="btn btn-sm btn-info" @onclick="(() => EditEvent.InvokeAsync(Provider))">Изменить</button>
+            <button class="btn btn-sm btn-danger" @onclick="(() => RemoveEvent.InvokeAsync(Provider))">Удалить</button>
+            <button class="btn btn-sm btn-warning" @onclick="(() => SetServicesEvent.InvokeAsync(Provider))">Услуги</button>
+        </ColFragment>
+    </TableColumnComponent>
+</tr>
+
+@code {
+    [Parameter] public ProviderResponse Provider { get; set; }
+    [Parameter] public EventCallback<ProviderResponse> RemoveEvent { get; set; }
+    [Parameter] public EventCallback<ProviderResponse> EditEvent { get; set; }
+    [Parameter] public EventCallback<ProviderResponse> SetServicesEvent { get; set; }
+}

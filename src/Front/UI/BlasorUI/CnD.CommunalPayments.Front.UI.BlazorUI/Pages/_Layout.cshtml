@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
-@namespace CnD.CommunalPayments.Front.UI.BlazorUI.Pages
+@namespace BlazorApp1.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <!DOCTYPE html>
@@ -7,11 +7,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мои коммунальные платежи</title>
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link href="css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/site.css" />
     <link href="CnD.CommunalPayments.Front.UI.BlazorUI.styles.css" rel="stylesheet" />
-    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
 <body>
     @RenderBody()
@@ -27,6 +28,22 @@
         <a class="dismiss">🗙</a>
     </div>
 
+
     <script src="_framework/blazor.server.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="js/SaveFile.js"></script>
+
+    <!--// переопределение валидации на стороне клиента-->
+    <script>
+        $.validator.range = function (value, element, param) {
+            var globalizedValue = value.replace(",", ".");
+            return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+        };
+        $.validator.number = function (value, element) {
+            return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+        };
+    </script>
 </body>
 </html>

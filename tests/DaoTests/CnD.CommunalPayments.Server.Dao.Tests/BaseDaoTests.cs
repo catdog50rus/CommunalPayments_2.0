@@ -1,3 +1,4 @@
+using CnD.CommunalPayments.Server.Dao.Base;
 using CnD.CommunalPayments.Server.Dao.IMPL.SQL;
 using Microsoft.EntityFrameworkCore;
 using Moq;

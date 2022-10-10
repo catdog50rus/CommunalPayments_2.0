@@ -13,7 +13,19 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Contracts\CnD.CommunalPayments.Contracts.Models\CnD.CommunalPayments.Contracts.Models.csproj" />
+    <ProjectReference Include="..\..\..\Client\CnD.CommunalPayments.Front.ApiClient\CnD.CommunalPayments.Front.ApiClient.csproj" />
     <ProjectReference Include="..\..\..\Configure\CnD.CommunalPayments.Front.Configure\CnD.CommunalPayments.Front.Configure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\FormTable\" />
+    <Folder Include="Services\Toast\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\css\site.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

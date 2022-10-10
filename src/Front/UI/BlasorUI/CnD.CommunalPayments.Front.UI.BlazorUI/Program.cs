@@ -19,6 +19,8 @@ try
     builder.Services.AddServerSideBlazor();
 
     builder.Services.AddApplicationOptions(configuration);
+    builder.Services.AddClientServices();
+    builder.Services.AddHttpClient();
 
     var app = builder.Build();
 

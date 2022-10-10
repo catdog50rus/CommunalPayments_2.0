@@ -19,5 +19,5 @@ public class InvoiceResponse
     /// </summary>
     public decimal Sum { get; init; }
 
-    public bool IsPaid { get; init; }
+    public bool IsPaid { get; set; }
 }

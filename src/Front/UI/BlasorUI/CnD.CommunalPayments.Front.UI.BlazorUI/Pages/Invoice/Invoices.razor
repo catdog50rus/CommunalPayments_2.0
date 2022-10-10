@@ -1,0 +1,100 @@
+﻿@inherits InvoicesBase
+
+
+
+@if (!isPay)
+{
+    <!-- Форма -->
+    <FormTableComponent ItemsCollection="invoices">
+        <TableTitleFragment>
+            Квитанции ЖКХ
+        </TableTitleFragment>
+        <TableTitleButtonFragment>
+            @*Добавление нового счета*@
+            <div class="col">
+                <button class="btn btn-success " @onclick="()=>OpenModal()">Добавить</button>
+            </div>
+            @*Флаг отображения оплаченных/неоплаченных квитанций*@
+            <div class="col text-right align-content-center">
+                <label>Показывать только неоплаченные квитанции</label>
+               @* <input type="checkbox" checked="checked" value="isNotPaided" @onchange="()=>ShowPaided()" />*@
+            </div>
+        </TableTitleButtonFragment>
+        <PaginationFragment>
+            <PaginationComponent PageSize="pageSizeList"
+                             Radius="2"
+                             TotalItems="totalItems"
+                             Pagination="SetPageOfSet">
+            </PaginationComponent>
+        </PaginationFragment>
+        <TableHeaderFragment>
+            <th scope="col">Оплачено</th>
+            <th scope="col" class="w-auto">Период</th>
+            <th scope="col" class="w-auto">Поставщик услуг</th>
+            <th scope="col" class="w-auto">Сумма</th>
+            <th scope="col" class="w-auto"></th>
+            <th scope="col" class="w-auto"></th>
+        </TableHeaderFragment>
+        <TableBodyFragment>
+            <TableBodyComponent ItemsCollection="@invoices">
+                <ItemFragment Context="context">
+                    <RowInvoicesTable Invoice="context" EditEvent="Edit" RemoveEvent="Remove" SetServiceEvent="SetService" PayEvent="Pay" />
+                </ItemFragment>
+            </TableBodyComponent>
+        </TableBodyFragment>
+    </FormTableComponent>
+
+}
+@*else
+{
+    <Payments Invoice="invoice"
+          OnPaimentReturnToInvoices="ReturnToPayment" />
+}*@
+
+@if (Periods != null && Providers != null)
+{
+
+    <!-- Modal -->
+   @* <Modal @ref="modal" CloseWindow="CloseModal">
+        <Title>
+            <p>Добавление нового счета за ЖКХ</p>
+        </Title>
+        <Body>
+            <ModalTableComponent T="InvoiceViewModel" ViewModel="InvoiceViewModel" SaveEvent="AddAsync">
+                <TableHeaderFragment>
+                    <th class="w-25">Период</th>
+                    <th class="w-50">Поставщик услуг</th>
+                    <th class="w-25">Сумма</th>
+                </TableHeaderFragment>
+                <TableBodyFragment>
+                    <td>
+                        <InputSelect @bind-Value="@InvoiceViewModel.IdPeriod" class="form-control">
+                            @foreach (var item in Periods.OrderByDescending(p => p.ToSort()))
+                            {
+                                <option value="@item.IdKey">@item.ToString()</option>
+                            }
+                        </InputSelect>
+                    </td>
+                    <td>
+                        <InputSelect class="form-control" @bind-Value="@InvoiceViewModel.IdProvider">
+                            @foreach (var item in Providers)
+                            {
+                                <option value="@item.IdProvider">@item.NameProvider</option>
+                            }
+                        </InputSelect>
+                    </td>
+                    <td>
+                        <InputNumber class="form-control" @bind-Value="@InvoiceViewModel.InvoiceSum"></InputNumber>
+                    </td>
+                </TableBodyFragment>
+                <AnotherButton>
+                    @if (!string.IsNullOrEmpty(InvoiceViewModel.IdProvider))
+                    {
+                        <a class="btn btn-sm btn-outline-success" role="button" href="@GetWeb(int.Parse(InvoiceViewModel.IdProvider))" target="_blank">Перейти в личный кабинет</a>
+                    }
+                </AnotherButton>
+            </ModalTableComponent>
+        </Body>
+    </Modal>*@
+}
+

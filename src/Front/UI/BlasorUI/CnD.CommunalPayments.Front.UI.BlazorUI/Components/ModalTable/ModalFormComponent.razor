@@ -1,0 +1,27 @@
+﻿@typeparam T
+
+<EditForm Model="@ViewModel" OnValidSubmit="@SaveEvent">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="row">
+        <div class="col mt-1 mb-2">
+            <h6>
+                @TitleFragment
+            </h6>
+        </div>
+    </div>
+    @FormBodyFragment
+    <ModalFormRowComponent ColClass="text-center">
+        <RowFragment>
+            <button type="submit" class="btn btn-success">Сохранить</button>
+        </RowFragment>
+    </ModalFormRowComponent>
+</EditForm>
+
+
+@code {
+    [Parameter] public RenderFragment FormBodyFragment { get; set; }
+    [Parameter] public T ViewModel { get; set; }
+    [Parameter] public EventCallback SaveEvent { get; set; }
+    [Parameter] public RenderFragment TitleFragment { get; set; }
+}

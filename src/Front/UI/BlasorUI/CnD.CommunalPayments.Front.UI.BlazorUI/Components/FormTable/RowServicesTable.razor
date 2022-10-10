@@ -1,0 +1,22 @@
+﻿@*<tr>
+    <!--Наименование услуги-->
+    <TableColumnComponent>
+        <ColFragment>
+            @Service.NameService
+        </ColFragment>
+
+    </TableColumnComponent>
+    <!--Блок кнопок-->
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment>
+            <button class="btn btn-sm btn-info" @onclick="(() => EditEvent.InvokeAsync(Service))">Изменить</button>
+            <button class="btn btn-sm btn-danger" @onclick="(() => RemoveEvent.InvokeAsync(Service))">Удалить</button>
+        </ColFragment>
+    </TableColumnComponent>
+</tr>
+
+@code{
+    [Parameter] public Service Service { get; set; }
+    [Parameter] public EventCallback<Service> RemoveEvent { get; set; }
+    [Parameter] public EventCallback<Service> EditEvent { get; set; }
+}*@

@@ -1,0 +1,25 @@
+﻿@inherits PaginationComponentBase
+
+<nav class="col">
+    <ul class="pagination">
+        @foreach (var page in pages)
+        {
+            <li class="page-item">
+                <button class="btn btn-paging
+                    @(page.Active ? "btn-info" : "btn-outline-info btn-paging-outline-primary:hover")
+                    @(page.Enabled ? null : "disabled")"
+                        @onclick="@(() => SelectedPage(page))">
+                    @(page.Text)
+                </button>
+            </li>
+        }
+        <li>
+            <select class="btn page-size-selector"  @onchange="@SelectedPageSize">
+                @foreach (var item in PageSize)
+                {
+                    <option class="paging-item" value="@item">@item</option>
+                }
+            </select>          
+        </li>
+    </ul>
+</nav>

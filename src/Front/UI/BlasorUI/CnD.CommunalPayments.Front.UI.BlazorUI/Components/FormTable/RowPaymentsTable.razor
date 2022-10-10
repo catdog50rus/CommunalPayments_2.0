@@ -1,0 +1,62 @@
+﻿@*<tr>
+    <!--Период-->
+    <TableColumnComponent>
+        <ColFragment>
+            @Payment.Invoice.Period
+        </ColFragment>
+
+    </TableColumnComponent>
+    <!--Наименование поставщика-->
+    <TableColumnComponent>
+        <ColFragment>
+            @Payment.Invoice.Provider.NameProvider
+        </ColFragment>
+
+    </TableColumnComponent>
+    <!--Сумма счета-->
+    <TableColumnComponent>
+        <ColFragment>
+            @Payment.Invoice.InvoiceSum
+        </ColFragment>
+
+    </TableColumnComponent>
+    <!--Дата оплаты-->
+    <TableColumnComponent>
+        <ColFragment>
+            @Payment.DatePayment
+        </ColFragment>
+
+    </TableColumnComponent>
+    <!--Сумма платежа-->
+    <TableColumnComponent>
+        <ColFragment>
+            @Payment.PaymentSum
+        </ColFragment>
+
+    </TableColumnComponent>
+    <!--Блок кнопок-->
+    @if (Invoice != null)
+    {
+        <TableColumnComponent ColClass="text-center">
+            <ColFragment>
+                <button class="btn btn-sm btn-info" @onclick="(() => EditEvent.InvokeAsync(Payment))">Изменить</button>
+                <button class="btn btn-sm btn-danger" @onclick="(() => RemoveEvent.InvokeAsync(Payment))">Удалить</button>
+            </ColFragment>
+        </TableColumnComponent>
+    }
+    <!--Блок кнопок-->
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment>
+            <button class="btn btn-sm btn-warning" disabled="@(Payment.IdOrder == 0? "disabled" : null)" @onclick="(() => DownloadFileEvent.InvokeAsync(Payment))">Платежка</button>
+    </ColFragment>
+    </TableColumnComponent>
+</tr>
+
+@code {
+    [Parameter] public Payment Payment { get; set; }
+    [Parameter] public EventCallback<Payment> RemoveEvent { get; set; }
+    [Parameter] public EventCallback<Payment> EditEvent { get; set; }
+    [Parameter] public EventCallback<Payment> DownloadFileEvent { get; set; }
+    [Parameter] public Invoice Invoice { get; set; }
+}
+*@

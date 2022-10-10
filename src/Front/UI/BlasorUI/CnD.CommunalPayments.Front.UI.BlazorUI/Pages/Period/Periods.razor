@@ -1,0 +1,59 @@
+﻿@page "/Periods/periods"
+
+@inherits PeriodsBase
+
+<!-- Форма -->
+<FormTableComponent ItemsCollection="@periods">
+    <TableTitleFragment>
+        Расчетные периоды
+    </TableTitleFragment>
+    <TableTitleButtonFragment>
+        <div class="col">
+            <button class="btn btn-success" @onclick="()=>modal.Open()">Добавить</button>
+        </div>
+    </TableTitleButtonFragment>
+    <PaginationFragment>
+        <PaginationComponent PageSize="pageSizeList"
+                             Radius="2"
+                             TotalItems="totalItems"
+                             Pagination="SetPageOfSet">
+
+        </PaginationComponent>
+    </PaginationFragment>
+    <TableBodyFragment>
+        @*<TableBodyComponent ItemsCollection="@periods">
+            <ItemFragment Context="period">
+                <RowPeriodsTable Period="period" EditEvent="Edit" RemoveEvent="Remove" />
+            </ItemFragment>
+        </TableBodyComponent>*@
+    </TableBodyFragment>
+
+</FormTableComponent>
+
+
+<!-- Modal -->
+@*<Modal @ref="modal" CloseWindow="CloseModal">
+    <Title>Добавление нового расчетного периода</Title>
+    <Body>
+        <ModalFormComponent T="@PeriodViewModel" ViewModel="PeriodModel" SaveEvent="AddAsync">
+            <FormBodyFragment>
+                <ModalFormRowComponent>
+                    <RowFragment>
+                        <InputNumber class="form-control" placeholder="Расчетный год" @bind-Value="@PeriodModel.Year" />
+                    </RowFragment>
+                </ModalFormRowComponent>
+                <ModalFormRowComponent>
+                    <RowFragment>
+                        <InputSelect class="form-control" placeholder="Период" @bind-Value="PeriodModel.Month">
+                            @foreach (var item in Enum.GetValues(typeof(PeriodsName)))
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </InputSelect>
+                    </RowFragment>
+                </ModalFormRowComponent>
+            </FormBodyFragment>
+        </ModalFormComponent>
+    </Body>
+</Modal>*@
+

@@ -1,0 +1,37 @@
+﻿@*
+<tr>
+    <!--Дата передачи-->
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment>
+            @ServicesCounter.DateCount
+        </ColFragment>
+
+    </TableColumnComponent>
+    <!--Услуга-->
+    <TableColumnComponent>
+        <ColFragment>
+            @ServicesCounter.Service.ToString()
+        </ColFragment>
+
+    </TableColumnComponent>
+    <!--Показания счетчика-->
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment>
+            @ServicesCounter.ValueCounter
+        </ColFragment>
+
+    </TableColumnComponent>
+    <!--Блок кнопок-->
+    <TableColumnComponent ColClass="text-center"> 
+        <ColFragment >
+            <button class="btn btn-sm btn-info" @onclick="(() => EditEvent.InvokeAsync(ServicesCounter))">Изменить</button>
+            <button class="btn btn-sm btn-danger" @onclick="(() => RemoveEvent.InvokeAsync(ServicesCounter))">Удалить</button>
+        </ColFragment>
+    </TableColumnComponent>
+</tr>
+
+@code{
+    [Parameter] public ServiceCounter ServicesCounter { get; set; }
+    [Parameter] public EventCallback<ServiceCounter> RemoveEvent { get; set; }
+    [Parameter] public EventCallback<ServiceCounter> EditEvent { get; set; }
+}*@

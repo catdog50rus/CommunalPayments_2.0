@@ -69,11 +69,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{1DD7CED0-2207-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorUI", "BlazorUI", "{01BFE84B-67B6-443C-AB80-4633B9310101}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Front.UI.BlazorUI", "src\Front\UI\BlasorUI\CnD.CommunalPayments.Front.UI.BlazorUI\CnD.CommunalPayments.Front.UI.BlazorUI.csproj", "{5E62A3C8-9797-4F9F-992B-ED50FF6573C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Front.UI.BlazorUI", "src\Front\UI\BlasorUI\CnD.CommunalPayments.Front.UI.BlazorUI\CnD.CommunalPayments.Front.UI.BlazorUI.csproj", "{5E62A3C8-9797-4F9F-992B-ED50FF6573C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configure", "Configure", "{C88AE8FB-82B7-4302-9CF4-BC3336CF8F61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnD.CommunalPayments.Front.Configure", "src\Front\Configure\CnD.CommunalPayments.Front.Configure\CnD.CommunalPayments.Front.Configure.csproj", "{AD107275-E961-4387-9E53-9580D0EA7D63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Front.Configure", "src\Front\Configure\CnD.CommunalPayments.Front.Configure\CnD.CommunalPayments.Front.Configure.csproj", "{AD107275-E961-4387-9E53-9580D0EA7D63}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnD.CommunalPayments.Front.ApiClient", "src\Front\Client\CnD.CommunalPayments.Front.ApiClient\CnD.CommunalPayments.Front.ApiClient.csproj", "{F2E1B97C-1F59-46F7-BC57-7BB2BBE864EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,10 @@ Global
 		{AD107275-E961-4387-9E53-9580D0EA7D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD107275-E961-4387-9E53-9580D0EA7D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD107275-E961-4387-9E53-9580D0EA7D63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2E1B97C-1F59-46F7-BC57-7BB2BBE864EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E1B97C-1F59-46F7-BC57-7BB2BBE864EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2E1B97C-1F59-46F7-BC57-7BB2BBE864EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2E1B97C-1F59-46F7-BC57-7BB2BBE864EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -191,6 +197,7 @@ Global
 		{5E62A3C8-9797-4F9F-992B-ED50FF6573C8} = {01BFE84B-67B6-443C-AB80-4633B9310101}
 		{C88AE8FB-82B7-4302-9CF4-BC3336CF8F61} = {85632D0F-6113-417A-B677-69590B78EB6E}
 		{AD107275-E961-4387-9E53-9580D0EA7D63} = {C88AE8FB-82B7-4302-9CF4-BC3336CF8F61}
+		{F2E1B97C-1F59-46F7-BC57-7BB2BBE864EE} = {09A586F7-046C-4103-8815-7AB78F61C9A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76755EE1-6CFC-49EA-8FD4-041662BB6168}

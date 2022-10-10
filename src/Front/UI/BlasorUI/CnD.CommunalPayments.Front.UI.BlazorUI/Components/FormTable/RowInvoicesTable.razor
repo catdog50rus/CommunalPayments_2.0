@@ -1,0 +1,56 @@
+﻿@using CnD.CommunalPayments.Contracts.Models.Invoices.Response
+<tr>
+    <!--Чек-бокс-->
+    <TableColumnComponent ColClass="text-center align-content-center">
+        <ColFragment>
+            <input onclick="return false;" type="checkbox" @bind="Invoice.IsPaid" />
+        </ColFragment>
+    </TableColumnComponent>
+    <!--Период-->
+    <TableColumnComponent>
+        <ColFragment>
+            @Invoice.PeriodId
+        </ColFragment>
+    </TableColumnComponent>
+    <!--Поставщик-->
+    <TableColumnComponent>
+        <ColFragment>
+            @Invoice.ProviderId
+        </ColFragment>
+    </TableColumnComponent>
+    <!--Сумма-->
+    <TableColumnComponent ColClass="text-right">
+        <ColFragment>
+            @Invoice.Sum
+        </ColFragment>
+    </TableColumnComponent>
+    <!--Блок кнопок-->
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment>
+            <button class="btn btn-sm btn-info" @onclick="(() => EditEvent.InvokeAsync(Invoice))">Изменить</button>
+            <button class="btn btn-sm btn-danger" @onclick="(() => RemoveEvent.InvokeAsync(Invoice))">Удалить</button>
+            <button class="btn btn-sm btn-warning" @onclick="(()=>SetServiceEvent.InvokeAsync(Invoice))">Услуги</button>
+        </ColFragment>
+    </TableColumnComponent>
+    @*Блок оплаты*@
+    <TableColumnComponent ColClass="text-center">
+        <ColFragment>
+            @if (Invoice.IsPaid)
+            {
+                <button class="btn btn-sm btn-success" @onclick="()=>PayEvent.InvokeAsync(Invoice)">Оплачено</button>
+            }
+            else
+            {
+                <button class="btn btn-sm btn-outline-success" @onclick="()=>PayEvent.InvokeAsync(Invoice)">Оплатить</button>
+            }
+        </ColFragment>
+    </TableColumnComponent>
+</tr>
+
+@code {
+    [Parameter] public InvoiceResponse Invoice { get; set; }
+    [Parameter] public EventCallback<InvoiceResponse> RemoveEvent { get; set; }
+    [Parameter] public EventCallback<InvoiceResponse> EditEvent { get; set; }
+    [Parameter] public EventCallback<InvoiceResponse> SetServiceEvent { get; set; }
+    [Parameter] public EventCallback<InvoiceResponse> PayEvent { get; set; }
+}
