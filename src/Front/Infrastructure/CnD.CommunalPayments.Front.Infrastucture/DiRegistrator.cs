@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using CnD.CommunalPayments.Server.Infrastructure.Mapper.Profiles;
+using CnD.CommunalPayments.Front.Infrastucture.Profiles;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CnD.CommunalPayments.Server.Infrastructure.Mapper;
+namespace CnD.CommunalPayments.Front.Infrastucture;
 
 public static class DiRegistrator
 {
@@ -10,9 +10,7 @@ public static class DiRegistrator
     {
         var mappingConfig = new MapperConfiguration(mc =>
         {
-            mc.AddProfile(new ApiContractRequestsProfile());
-            mc.AddProfile(new ApiContractResponsesProfile());
-            mc.AddProfile(new ModelEntityProfile());
+            mc.AddProfile(new ResponseProfile());
         });
 
         mappingConfig.AssertConfigurationIsValid();

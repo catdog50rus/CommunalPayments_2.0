@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Contracts\CnD.CommunalPayments.Contracts.Models\CnD.CommunalPayments.Contracts.Models.csproj" />
     <ProjectReference Include="..\..\Configure\CnD.CommunalPayments.Front.Configure\CnD.CommunalPayments.Front.Configure.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\CnD.CommunalPayments.Front.Infrastucture\CnD.CommunalPayments.Front.Infrastucture.csproj" />
   </ItemGroup>
 
 </Project>

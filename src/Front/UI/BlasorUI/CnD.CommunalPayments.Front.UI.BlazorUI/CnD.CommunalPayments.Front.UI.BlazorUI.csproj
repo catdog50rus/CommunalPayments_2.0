@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
@@ -15,6 +15,8 @@
     <ProjectReference Include="..\..\..\..\Contracts\CnD.CommunalPayments.Contracts.Models\CnD.CommunalPayments.Contracts.Models.csproj" />
     <ProjectReference Include="..\..\..\Client\CnD.CommunalPayments.Front.ApiClient\CnD.CommunalPayments.Front.ApiClient.csproj" />
     <ProjectReference Include="..\..\..\Configure\CnD.CommunalPayments.Front.Configure\CnD.CommunalPayments.Front.Configure.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\CnD.CommunalPayments.Front.Infrastucture\CnD.CommunalPayments.Front.Infrastucture.csproj" />
+    <ProjectReference Include="..\..\..\ViewModels\CnD.CommunalPayments.Front.ViewModels\CnD.CommunalPayments.Front.ViewModels.csproj" />
   </ItemGroup>
 
   <ItemGroup>

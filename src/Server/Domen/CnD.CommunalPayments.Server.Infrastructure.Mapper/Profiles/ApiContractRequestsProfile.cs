@@ -25,6 +25,8 @@ internal class ApiContractRequestsProfile : Profile
             .ForPath(x => x.Period, o => o.MapFrom(i => new Period { Id = new ModelId(i.PeriodId) }))
 
             .ForPath(x => x.Id, o => o.Ignore())
+
+            .ForPath(x => x.IsPaid, o => o.Ignore())
             ;
 
         CreateMap<UpdateInvoiceRequest, Invoice>()

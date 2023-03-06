@@ -1,6 +1,7 @@
 using NLog;
 using NLog.Web;
 using CnD.CommunalPayments.Front.UI.BlazorUI.AppConfig;
+using CnD.CommunalPayments.Front.Infrastucture;
 
 var logger = LogManager
     .Setup()
@@ -21,6 +22,7 @@ try
     builder.Services.AddApplicationOptions(configuration);
     builder.Services.AddClientServices();
     builder.Services.AddHttpClient();
+    builder.Services.AddAutoMapper();
 
     var app = builder.Build();
 

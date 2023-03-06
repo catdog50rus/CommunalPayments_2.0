@@ -15,6 +15,9 @@ try
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.UseNLog();
 
+    var r = new List<string>() { "" };
+    var s = r.All( x=> x.Length > 0);
+
     var env = builder.Environment.EnvironmentName;
 
     builder.Services.AddAppDefinitions(builder, typeof(Program));

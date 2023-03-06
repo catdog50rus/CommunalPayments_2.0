@@ -1,11 +1,13 @@
 ﻿@inherits InvoicesBase
 
-
-
-@if (!isPay)
+@if (InvoicesListViewModel is null)
+{
+    <Spinner></Spinner>
+}
+else
 {
     <!-- Форма -->
-    <FormTableComponent ItemsCollection="invoices">
+    <FormTableComponent ItemsCollection="InvoicesListViewModel">
         <TableTitleFragment>
             Квитанции ЖКХ
         </TableTitleFragment>
@@ -17,7 +19,7 @@
             @*Флаг отображения оплаченных/неоплаченных квитанций*@
             <div class="col text-right align-content-center">
                 <label>Показывать только неоплаченные квитанции</label>
-               @* <input type="checkbox" checked="checked" value="isNotPaided" @onchange="()=>ShowPaided()" />*@
+                <input type="checkbox" checked="checked" value="isNotPaided" @onchange="()=>ShowPaided()" />
             </div>
         </TableTitleButtonFragment>
         <PaginationFragment>
@@ -36,7 +38,7 @@
             <th scope="col" class="w-auto"></th>
         </TableHeaderFragment>
         <TableBodyFragment>
-            <TableBodyComponent ItemsCollection="@invoices">
+            <TableBodyComponent ItemsCollection="@InvoicesListViewModel">
                 <ItemFragment Context="context">
                     <RowInvoicesTable Invoice="context" EditEvent="Edit" RemoveEvent="Remove" SetServiceEvent="SetService" PayEvent="Pay" />
                 </ItemFragment>
@@ -45,17 +47,12 @@
     </FormTableComponent>
 
 }
-@*else
-{
-    <Payments Invoice="invoice"
-          OnPaimentReturnToInvoices="ReturnToPayment" />
-}*@
 
 @if (Periods != null && Providers != null)
 {
 
     <!-- Modal -->
-   @* <Modal @ref="modal" CloseWindow="CloseModal">
+    <Modal @ref="modal" CloseWindow="CloseModal">
         <Title>
             <p>Добавление нового счета за ЖКХ</p>
         </Title>
@@ -69,9 +66,9 @@
                 <TableBodyFragment>
                     <td>
                         <InputSelect @bind-Value="@InvoiceViewModel.IdPeriod" class="form-control">
-                            @foreach (var item in Periods.OrderByDescending(p => p.ToSort()))
+                            @foreach (var item in Periods)
                             {
-                                <option value="@item.IdKey">@item.ToString()</option>
+                                <option value="@item.Id.Value">@item.ToString()</option>
                             }
                         </InputSelect>
                     </td>
@@ -79,7 +76,7 @@
                         <InputSelect class="form-control" @bind-Value="@InvoiceViewModel.IdProvider">
                             @foreach (var item in Providers)
                             {
-                                <option value="@item.IdProvider">@item.NameProvider</option>
+                                <option value="@item.Id.Value">@item.NameProvider</option>
                             }
                         </InputSelect>
                     </td>
@@ -95,6 +92,6 @@
                 </AnotherButton>
             </ModalTableComponent>
         </Body>
-    </Modal>*@
+    </Modal>
 }
 

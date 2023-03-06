@@ -3,13 +3,13 @@
 @inherits PeriodsBase
 
 <!-- Форма -->
-<FormTableComponent ItemsCollection="@periods">
+<FormTableComponent ItemsCollection="@Periods">
     <TableTitleFragment>
         Расчетные периоды
     </TableTitleFragment>
     <TableTitleButtonFragment>
         <div class="col">
-            <button class="btn btn-success" @onclick="()=>modal.Open()">Добавить</button>
+            <button class="btn btn-success" @*@onclick="()=>modal.Open()"*@>Добавить</button>
         </div>
     </TableTitleButtonFragment>
     <PaginationFragment>
@@ -20,19 +20,24 @@
 
         </PaginationComponent>
     </PaginationFragment>
+    <TableHeaderFragment>
+        <th scope="col" class="w-auto">Год</th>
+        <th scope="col" class="w-auto">Месяц</th>
+        <th scope="col" class="w-auto"></th>
+    </TableHeaderFragment>
     <TableBodyFragment>
-        @*<TableBodyComponent ItemsCollection="@periods">
-            <ItemFragment Context="period">
-                <RowPeriodsTable Period="period" EditEvent="Edit" RemoveEvent="Remove" />
+        <TableBodyComponent ItemsCollection="@Periods">
+            <ItemFragment Context="Period">
+                <RowPeriodsTable Period="@Period" EditEvent="Edit" RemoveEvent="Remove" />
             </ItemFragment>
-        </TableBodyComponent>*@
+        </TableBodyComponent>
     </TableBodyFragment>
 
 </FormTableComponent>
 
 
 <!-- Modal -->
-@*<Modal @ref="modal" CloseWindow="CloseModal">
+<!--<Modal @ref="modal" CloseWindow="CloseModal">
     <Title>Добавление нового расчетного периода</Title>
     <Body>
         <ModalFormComponent T="@PeriodViewModel" ViewModel="PeriodModel" SaveEvent="AddAsync">
@@ -55,5 +60,5 @@
             </FormBodyFragment>
         </ModalFormComponent>
     </Body>
-</Modal>*@
+</Modal>-->
 

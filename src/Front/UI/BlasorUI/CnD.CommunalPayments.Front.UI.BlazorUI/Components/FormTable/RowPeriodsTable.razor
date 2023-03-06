@@ -25,7 +25,7 @@
 </tr>
 
 @code{
-    [Parameter] public PeriodResponse Period { get; set; }
-    [Parameter] public EventCallback<PeriodResponse> RemoveEvent { get; set; }
-    [Parameter] public EventCallback<PeriodResponse> EditEvent { get; set; }
+    [Parameter] public PeriodListItemViewModel Period { get; set; }
+    [Parameter] public EventCallback<PeriodListItemViewModel> RemoveEvent { get; set; }
+    [Parameter] public EventCallback<PeriodListItemViewModel> EditEvent { get; set; }
 }

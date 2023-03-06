@@ -2,11 +2,13 @@
 using CnD.CommunalPayments.Front.ApiClient;
 using CnD.CommunalPayments.Front.UI.BlazorUI.Components;
 using CnD.CommunalPayments.Front.UI.BlazorUI.Shared;
+using CnD.CommunalPayments.Front.ViewModels.Periods;
+using CnD.CommunalPayments.Front.ViewModels.Periods;
 using Microsoft.AspNetCore.Components;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace CnD.CommunalPayments.Front.UI.BlazorUI.Pages.Period;
+namespace CnD.CommunalPayments.Front.UI.BlazorUI.Pages.PeriodPages;
 
 public class PeriodsBase : ComponentBase
 {
@@ -21,10 +23,10 @@ public class PeriodsBase : ComponentBase
     /// Репозиторий данных
     /// </summary>
     [Inject]
-    public IPeriodClientService Repository { get; set; }
+    public IPeriodClientService PeriodsClient { get; set; }
 
-    protected PeriodResponse period = default;
-    protected IEnumerable<PeriodResponse> periods;
+    protected Period period = default;
+    protected IEnumerable<PeriodListItemViewModel> Periods;
 
     protected int[] pageSizeList = new int[] { 10, 25, 50 };
     private int pageOfSet = 0;
@@ -112,7 +114,7 @@ public class PeriodsBase : ComponentBase
     /// <summary>
     /// Изменить запись
     /// </summary>
-    protected void Edit(PeriodResponse item)
+    protected void Edit(PeriodListItemViewModel item)
     {
         //Готовим модель представления
         //period = item;
@@ -125,7 +127,7 @@ public class PeriodsBase : ComponentBase
     /// Удалить запись
     /// </summary>
     /// <param name="item"></param>
-    protected void Remove(PeriodResponse item)
+    protected void Remove(PeriodListItemViewModel item)
     {
         //period = item;
         //ToastShow("Внимание! Данные о периоде будут безвозвратно удалены. Вы уверенны?", ToastLevel.Warning);
@@ -136,17 +138,15 @@ public class PeriodsBase : ComponentBase
 
     private async Task StateUpdate()
     {
+        var periods = (await PeriodsClient.GetAllAsync());
         if (totalItems == 0)
         {
-            periods = (await Repository.GetAllAsync());//.OrderByDescending(p => p.ToSort());
+            //.OrderByDescending(p => p.ToSort());
             totalItems = periods.Count();
-            periods = periods.Skip(pageOfSet).Take(pageSize);
-        }
-        else
-        {
-            periods = (await Repository.GetAllAsync());//.OrderByDescending(p => p.ToSort()).Skip(pageOfSet).Take(pageSize); ;
         }
 
+        periods = periods.Skip(pageOfSet).Take(pageSize);
+        Periods = periods.Select(x => new PeriodListItemViewModel { Id = x.Id.Value, Month = x.Month, Year = x.Year });
     }
 
     //protected void ToastShow(string mes, ToastLevel level)

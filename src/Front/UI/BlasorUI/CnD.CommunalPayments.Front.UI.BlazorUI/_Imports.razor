@@ -6,10 +6,22 @@
 @using Microsoft.AspNetCore.Components.Web
 @using Microsoft.AspNetCore.Components.Web.Virtualization
 @using Microsoft.JSInterop
+
 @using CnD.CommunalPayments.Front.UI.BlazorUI
 @using CnD.CommunalPayments.Front.UI.BlazorUI.Pages
-@using CnD.CommunalPayments.Front.UI.BlazorUI.Pages.Invoice
-@using CnD.CommunalPayments.Front.UI.BlazorUI.Pages.Period
+@using CnD.CommunalPayments.Front.UI.BlazorUI.Pages.InvoicePages
+@using CnD.CommunalPayments.Front.UI.BlazorUI.Pages.PeriodPages
 @using CnD.CommunalPayments.Front.UI.BlazorUI.Shared
 @using CnD.CommunalPayments.Front.UI.BlazorUI.Components
 @using CnD.CommunalPayments.Front.UI.BlazorUI.Components.FormTable
+@using CnD.CommunalPayments.Front.UI.BlazorUI.Components.ModalTable
+
+@using CnD.CommunalPayments.Contracts.Models.Invoices.Response
+@using CnD.CommunalPayments.Contracts.Models.Periods.Response
+@using CnD.CommunalPayments.Contracts.Models.Providers.Response
+
+@using CnD.CommunalPayments.Front.ApiClient
+@using CnD.CommunalPayments.Front.ApiClient.Base
+@using CnD.CommunalPayments.Front.ViewModels.Invoices
+@using CnD.CommunalPayments.Front.ViewModels.Periods
+@using CnD.CommunalPayments.Front.ViewModels.Providers

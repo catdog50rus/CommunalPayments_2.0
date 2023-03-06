@@ -7,7 +7,7 @@ public class PaymentEntity : EntityBase
     /// <summary>
     /// Дата платежа
     /// </summary>
-    public string DatePayment { get; set; }
+    public string? DatePayment { get; set; }
 
     /// <summary>
     /// Сумма платежа
@@ -19,7 +19,7 @@ public class PaymentEntity : EntityBase
     /// <summary>
     /// Счет за ЖКХ
     /// </summary>
-    public InvoiceEntity Invoice { get; set; }
+    public InvoiceEntity? Invoice { get; set; }
 
     /// <summary>
     /// Флаг была ли произведена оплата
@@ -31,5 +31,5 @@ public class PaymentEntity : EntityBase
     /// <summary>
     /// Скан платежки
     /// </summary>
-    public OrderEntity Order { get; set; }
+    public OrderEntity? Order { get; set; }
 }
